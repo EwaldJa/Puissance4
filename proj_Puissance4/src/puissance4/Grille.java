@@ -2,14 +2,15 @@ package puissance4;
 
 public class Grille {
 
-
+    //Attributs
 	private Pion[][] grille;
-	public static int NB_LIGNE;
-	public static int NB_COLONNE;
-	public Vue mavue;
+    private static int NB_LIGNE;
+    private static int NB_COLONNE;
+    private static final int DEFAULT_NB_LIGNE = 6;
+    private static final int DEFAULT_NB_COLONNE = 7;
+    private Vue mavue;
 
-
-
+	//Methods
     public Grille(int nbColonne, int nbLigne, Vue vue) {
     	NB_LIGNE = nbLigne;
     	NB_COLONNE = nbColonne;
@@ -35,8 +36,8 @@ public class Grille {
     }
 
     public Grille(Vue vue) {
-    	NB_LIGNE = 6;
-    	NB_COLONNE = 7;
+    	NB_LIGNE = DEFAULT_NB_LIGNE;
+    	NB_COLONNE = DEFAULT_NB_LIGNE;
         grille = new Pion[NB_LIGNE][NB_COLONNE];
         for (int i = 0; i < NB_LIGNE; i++) {
             for (int j = 0; j < NB_COLONNE; j++) {
@@ -58,7 +59,13 @@ public class Grille {
         mavue = new VueConsole();
     }
 
+    public static int getNbLigne() {
+        return NB_LIGNE;
+    }
 
+    public static int getNbColonne() {
+        return NB_COLONNE;
+    }
 
     public Pion getPion(int indLigne, int indCol) throws IndexOutOfBoundsException{
     	return grille[indLigne][indCol];
@@ -90,6 +97,22 @@ public class Grille {
     	return grille;
     }
 
+    public String toString() {
+        String result = null;
+        for (int i = 0; i<NB_COLONNE; i++) {
+            for (int j =0 ; j < NB_LIGNE ; j++) {
+                if (grille[i][j] == null) {
+                    result+="|  ";
+                }else {
+                    result+="| "+grille[i][j].getMotif()+" ";
+                }
+            }
+            result+="|\n";
+        }
+
+        return result;
+    }
+
 	/*
     //Attributs
     private TabPion[] grille;
@@ -116,34 +139,5 @@ public class Grille {
     	return grille[indice];
     }
 
-    public void placerPion(int colonne) {
-        boolean libre = false;
-        int indiceLigne = 0;
-        do {
-            libre = grille[nbColonne-indiceLigne][colonne].estLibre();
-            indiceLigne++;
-        } while (indiceLigne<nbColonne && !libre);
-        if (indiceLigne == nbColonne) {
-            System.out.println("Colonne pleine");
-        }
-    }
-
-    public String toString() {
-        String result = null;
-        for (int i = 0; i<NB_COLONNE; i++) {
-            for (int j =0 ; j < NB_LIGNE ; j++) {
-                if (grille[i][j] == null) {
-                    result+="|  ";
-                }else {
-                    result+="| "+grille[i][j].getMotif()+" ";
-                }
-            }
-            result+="|\n";
-        }
-
-        return result;
-    }
     */
-
-
 }

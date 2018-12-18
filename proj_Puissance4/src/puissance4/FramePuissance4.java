@@ -13,7 +13,7 @@ public class FramePuissance4 extends Frame {
 		
 	}
 	
-	public void affichage(Grille grille) {
+	public void affichage(Pion[][] grille) {
 		canvas.affichage(grille);
 	}
 	

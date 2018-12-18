@@ -7,7 +7,8 @@ public class Jeu {
 	private Joueur joueur1;
 	private Joueur joueur2;
 	private Grille maGrille;
-	private int[] positionDernierPion;//valeur que l'on rÈcupËre a chaque fois que l'on ajoute un pion ‡ la grille
+	//valeur que l'on r√©cup√©re a chaque fois que l'on ajoute un pion √† la grille
+	private int[] positionDernierPion;
 	
 	public Jeu() {
 		joueur1 = new Joueur("Joueur1",'X');
@@ -52,32 +53,39 @@ public class Jeu {
 			try{
 				positionDernierPion =  maGrille.placerPion(colonne,lePion);
 				
-			}
-			catch (IndiceIncorrectException e) {
+			}catch (IndiceIncorrectException e) {
 				System.out.println("L'indice que vous avez entrez n'existe pas, recommencer");
 				verifCollonePleine = false;
-			}
-			catch (ColonnePleineException e) {
-				System.out.println("La collone que vous essayer de remplir est dÈj‡ pleine");
+			}catch (ColonnePleineException e) {
+				System.out.println("La collone que vous essayer de remplir est d√©j√† pleine");
 				verifCollonePleine = false;
 				
+			}catch (Exception e) {
+				System.out.println("Placement du pion impossible");
 			}
-			//On ajoute le pion dans notre grille, si la collone est pleine ou si l'indice entrÈe n'existe pas dans le tableau on affiche un message et on recommence 
+			//On ajoute le pion dans notre grille, si la collone est pleine ou si l'indice entr√©e n'existe pas dans le tableau on affiche un message et on recommence
 			
 		}
 		
 		
 	}
+
+	public  boolean partieGagne() {
+
+		//TODO : impl√©menter cette methode
+
+		return false;
+	}
 	
 	public void jouerPartie() {
 		boolean laPartieGagne = false; 
 		Joueur joueurGagnant;
-		//implenter un choix alÔøΩtoire du premier joueurs
+		//implenter un choix al√©toire du premier joueurs
 		//Certainement grace a des pointeur premierJoueur et secondJoueur qui pointe soit sur joueur1 soit sur joueur2
 		
 		int nbTour = 0;
 		
-		while (laPartieGagne = false || maGrille.NB_COLONNE * maGrille.NB_LIGNE==nbTour) {
+		while (!laPartieGagne || (maGrille.getNbColonne()*maGrille.getNbLigne()==nbTour)) {
 			if (nbTour%2 == 0) {
 				jouerTour(joueur1);
 			}
@@ -89,11 +97,10 @@ public class Jeu {
 		}
 		
 		if((nbTour-1)%2==0) {
-			System.out.println("Felicitation " + joueur1.getPseudo() + " vous avez gagnez ! ");//plus propre si la methode partieGangne me renvois un pointeur vers le gagnant
+			//plus propre si la methode partieGangne me renvois un pointeur vers le gagnant
+			 System.out.println("Felicitation " + joueur1.getPseudo() + " vous avez gagnez ! ");
+		}else {
+			System.out.println("Felicitation " + joueur2.getPseudo() + " vous avez gagnez ! ");
 		}
-	}
-	
-	public  boolean partieGagne() {
-		return false;
 	}
 }

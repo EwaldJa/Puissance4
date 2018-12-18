@@ -2,24 +2,23 @@ package puissance4;
 
 public class Joueur {
     //Attributs
-    private String nom;
-    private String prenom;
+    
+    private String pseudo;
     private char motif;
 
     //Methodes
 
-    public Joueur(String nom, String prenom, char motif) {
-        this.nom = nom;
-        this.prenom = prenom;
+    public Joueur(String pseudo, char motif) {
+        this.pseudo = pseudo;
         this.motif = motif;
     }
 
-    public Joueur(String nom, String prenom) {
-        this(nom, prenom, 'X');
+    public Joueur(String prenom) {
+        this(prenom, 'X');
     }
 
     public Joueur() {
-        this("Joueur", "");
+        this("Joueur", 'X');
     }
 
     public char getMotif() {
@@ -29,15 +28,23 @@ public class Joueur {
     public void setMotif(char motif) {
         this.motif = motif;
     }
+    
+    public String getPseudo() {
+    	return pseudo;
+    }
+    
+    public void setPseudo(String pseudo) {
+    	this.pseudo = pseudo;
+    }
 
     public String toString() {
-        String result = nom+" "+prenom+" ("+motif+")";
+        String result = pseudo+" ("+motif+")";
 
         return result;
     }
 
     public static void main(String[] args) {
-        Joueur test = new Joueur("Nathan", "ARMANET", 'O');
+        Joueur test = new Joueur("Nathan", 'O');
 
         System.out.println(test.toString());
     }

@@ -32,6 +32,7 @@ public class Jeu {
 		System.out.println("Voulez vous lancer une partie ? O/N");
 		Scanner sc = new Scanner(System.in);
 		res = sc.nextLine();
+		sc.close();
 		if(res=="O") {
 			//lancer une partie
 		}
@@ -44,30 +45,30 @@ public class Jeu {
 	public void jouerTour(Joueur leJoueur) {
 		int colonne; 
 		Pion lePion;
-		boolean verifCollonePleine = false;
-		while (!verifCollonePleine) {
+		boolean verifColonnePleine = false;
+		while (!verifColonnePleine) {
 			//tant que l'on ne place pas le pion dans une collone vide on recommence 
 			
 			System.out.println("Dans quelle colonne voulez vous ajoueter votre pion ? \n");
-			System.out.println("Veuilliez entrer un nombre entre 1 et (ajouter nombre de collone de notre grille)" );
+			System.out.println("Veuillez entrer un nombre entre 1 et" + Grille.NB_COLONNE);    //(ajouter nombre de colonne de notre grille)
 			maGrille.affichage();
 			Scanner sc = new Scanner(System.in);
 			colonne = sc.nextInt();
-			lePion = new Pion(Color.WHITE,leJoueur.getMotif());
+			lePion = new Pion(/*Color.WHITE,*/leJoueur.getMotif());
 			//On r√©cup√©re la collone dans laquel le joueur souhaite jouer.
 			//et on cr√©e le pion qu'il va placer en fonction de son symbole
 			
 			
-			verifCollonePleine = true;
+			verifColonnePleine = true;
 			try{
-				positionDernierPion =  maGrille.placerPion(colonne,lePion);
+				positionDernierPion =  maGrille.placerPion(colonne-1,lePion); //J'ai corrigÈ l'indice de colonne qui doit commencer ‡ 0 ;)
 				
 			}catch (IndiceIncorrectException e) {
-				System.out.println("L'indice que vous avez entrez n'existe pas, recommencer");
-				verifCollonePleine = false;
+				System.out.println("L'indice que vous avez entrÈ n'existe pas, recommencez.");
+				verifColonnePleine = false;
 			}catch (ColonnePleineException e) {
-				System.out.println("La collone que vous essayer de remplir est d√©j√† pleine");
-				verifCollonePleine = false;
+				System.out.println("La colonne que vous essayer de remplir est dÈj‡†pleine !");
+				verifColonnePleine = false;
 				
 			}catch (Exception e) {
 				System.out.println("Placement du pion impossible");
@@ -108,7 +109,7 @@ public class Jeu {
 		}
 
 		if (nbTour == maGrille.getNbColonne()*maGrille.getNbLigne()) {
-			System.out.println("C'est un match nul !");
+			System.out.println("C'est un match nul !"); //Attention, il peut gagner sur le coup final !
 		}else if((nbTour-1)%2==0) {
 			//plus propre si la methode partieGangne me renvois un pointeur vers le gagnant
 			 System.out.println("Felicitation " + joueur1.getPseudo() + " vous avez gagnez !");

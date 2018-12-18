@@ -4,19 +4,23 @@ import java.awt.Color;
 
 public class Pion {
 	private char motif;
-	private Color couleur;
+	private Color color;
 
     public Pion(Color couleur,char motif) {
-		this.couleur=couleur;
+    	color=couleur;
 		this.motif=motif;
 	}
 
 	public Pion(char motif) {
-		this(null, motif);
+		this(new Color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255)), motif);
 	}
 
 	public char getMotif() {
 		return motif;
+	}
+	
+	public Color getColor() {
+		return color;
 	}
 
 	public String toString() {

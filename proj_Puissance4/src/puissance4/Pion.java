@@ -1,9 +1,11 @@
+package puissance4;
+
 import java.awt.Color;
 
 public class Pion {
 	private char motif;
 	private Color couleur;
-	
+
 	public Pion(char motif) {
 		this.motif = motif;
 	}
@@ -20,5 +22,5 @@ public class Pion {
 	public String toString() {
 		return String.valueOf(motif);
 	}
-	
+
 }

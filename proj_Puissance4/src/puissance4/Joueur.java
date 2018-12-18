@@ -1,3 +1,5 @@
+package puissance4;
+
 public class Joueur {
     //Attributs
     private String nom;

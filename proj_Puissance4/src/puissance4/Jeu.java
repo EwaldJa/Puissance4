@@ -40,7 +40,7 @@ public class Jeu {
 			
 			System.out.println("Dans quelle colonne voulez vous ajoueter votre pion ? \n");
 			System.out.println("Veuilliez entrer un nombre entre 1 et (ajouter nombre de collone de notre grille)" );
-			grille.afficher();
+			maGrille.affichage();
 			colonne = sc.nextInt();
 			lePion = new Pion(Color.WHITE,leJoueur.getMotif());
 			//On récupére la collone dans laquel le joueur souhaite jouer.
@@ -49,7 +49,7 @@ public class Jeu {
 			
 			verifCollonePleine = true;
 			try{
-				dernierPion =  maGrille.placerPion(colonne,lePion);
+				positionDernierPion =  maGrille.placerPion(colonne,lePion);
 				
 			}
 			catch (IndiceIncorrectException e) {

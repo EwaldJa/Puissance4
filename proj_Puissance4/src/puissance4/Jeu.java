@@ -14,6 +14,7 @@ public class Jeu {
 		this.joueur1 = joueur1;
 		this.joueur2 = joueur2;
 		this.maGrille = maGrille;
+		positionDernierPion = new int[2];
 		menuConsole();
 	}
 
@@ -31,7 +32,7 @@ public class Jeu {
 		System.out.println("Voulez vous lancer une partie ? O/N");
 		Scanner sc = new Scanner(System.in);
 		res = sc.nextLine();
-		if(res == "O") {
+		if(res=="O") {
 			//lancer une partie
 		}
 		else
@@ -44,7 +45,7 @@ public class Jeu {
 		int colonne; 
 		Pion lePion;
 		boolean verifCollonePleine = false;
-		while (verifCollonePleine==false) {
+		while (!verifCollonePleine) {
 			//tant que l'on ne place pas le pion dans une collone vide on recommence 
 			
 			System.out.println("Dans quelle colonne voulez vous ajoueter votre pion ? \n");
@@ -78,6 +79,7 @@ public class Jeu {
 		
 	}
 
+
 	public  boolean partieGagne() {
 
 		//TODO : implémenter cette methode
@@ -93,7 +95,8 @@ public class Jeu {
 		
 		int nbTour = 0;
 		
-		while (!laPartieGagne || (maGrille.getNbColonne()*maGrille.getNbLigne()==nbTour)) {
+		while (!laPartieGagne || (nbTour < maGrille.getNbColonne()*maGrille.getNbLigne())) {
+			// TODO : verifier si la partie est gagné seulement pour le dernoer pion posé (vérifié seulement autour du pion)
 			if (nbTour%2 == 0) {
 				jouerTour(joueur1);
 			}
@@ -103,12 +106,14 @@ public class Jeu {
 			laPartieGagne=partieGagne();
 			nbTour++;
 		}
-		
-		if((nbTour-1)%2==0) {
+
+		if (nbTour == maGrille.getNbColonne()*maGrille.getNbLigne()) {
+			System.out.println("C'est un match nul !");
+		}else if((nbTour-1)%2==0) {
 			//plus propre si la methode partieGangne me renvois un pointeur vers le gagnant
-			 System.out.println("Felicitation " + joueur1.getPseudo() + " vous avez gagnez ! ");
+			 System.out.println("Felicitation " + joueur1.getPseudo() + " vous avez gagnez !");
 		}else {
-			System.out.println("Felicitation " + joueur2.getPseudo() + " vous avez gagnez ! ");
+			System.out.println("Felicitation " + joueur2.getPseudo() + " vous avez gagnez !");
 		}
 	}
 }

@@ -4,19 +4,19 @@ public class Grille {
 
     //Attributs
 	private Pion[][] grille;
-    private static int NB_LIGNE;
-    private static int NB_COLONNE;
+    private int nbLigne;
+    private int nbColonne;
     private static final int DEFAULT_NB_LIGNE = 6;
     private static final int DEFAULT_NB_COLONNE = 7;
     private Vue mavue;
 
 	//Methods
     public Grille(int nbColonne, int nbLigne, Vue vue) {
-    	NB_LIGNE = nbLigne;
-    	NB_COLONNE = nbColonne;
-        grille = new Pion[NB_LIGNE][NB_COLONNE];
-        for (int i = 0; i < NB_LIGNE; i++) {
-            for (int j = 0; j < NB_COLONNE; j++) {
+    	this.nbLigne = nbLigne;
+    	this.nbColonne = nbColonne;
+        grille = new Pion[this.nbLigne][this.nbColonne];
+        for (int i = 0; i < this.nbLigne; i++) {
+            for (int j = 0; j < this.nbColonne; j++) {
             	grille[i][j] = null;
             }
         }
@@ -35,25 +35,29 @@ public class Grille {
         this(DEFAULT_NB_COLONNE, DEFAULT_NB_LIGNE, new VueConsole());
     }
 
-    public static int getNbLigne() {
-        return NB_LIGNE;
+    public int getNbLigne() {
+        return nbLigne;
     }
 
-    public static int getNbColonne() {
-        return NB_COLONNE;
+    public int getNbColonne() {
+        return nbColonne;
     }
 
     public Pion getPion(int indLigne, int indCol) throws IndexOutOfBoundsException{
-    	return grille[indLigne][indCol];
+    	if (0<=indLigne && indLigne< nbLigne && 0<=indCol && indCol< nbColonne) {
+            return grille[indLigne][indCol];
+        }else {
+    	    throw new IndexOutOfBoundsException();
+        }
     }
 
 
     public int[] placerPion(int col, Pion pion) throws Exception {
-    	if (col >= NB_COLONNE) {
+    	if (col >= nbColonne) {
     		throw new IndiceIncorrectException();
     	}
     	else {
-    		int i = NB_LIGNE;
+    		int i = nbLigne;
     		while(i>=0) {
     			if (grille[i][col] == null) {
     				grille[i][col] = pion;
@@ -75,8 +79,8 @@ public class Grille {
 
     public String toString() {
         String result = null;
-        for (int i = 0; i<NB_COLONNE; i++) {
-            for (int j =0 ; j < NB_LIGNE ; j++) {
+        for (int i = 0; i< nbColonne; i++) {
+            for (int j = 0; j < nbLigne; j++) {
                 if (grille[i][j] == null) {
                     result+="|  ";
                 }else {
@@ -88,32 +92,4 @@ public class Grille {
 
         return result;
     }
-
-	/*
-    //Attributs
-    private TabPion[] grille;
-    private int nbColonne;
-
-    //Methodes
-    public Grille(int nbColonne, int nbPion) {
-        this.nbColonne = nbColonne;
-        grille = new TabPion[nbColonne];
-        for (int i = 0; i < nbColonne; i++) {
-            grille[i] = new TabPion(nbPion);
-        }
-    }
-
-
-        nbColonne = Jeu.NB_DEFAULT_COLONNE;
-        grille = new TabPion[nbColonne];
-        for (int i = 0; i < nbColonne; i++) {
-            grille[i] = new TabPion();
-        }
-    }
-
-    public TabPion getTabPionIndice(int indice) throws IndexOutOfBoundsException {
-    	return grille[indice];
-    }
-
-    */
 }

@@ -2,11 +2,13 @@ package puissance4;
 
 public class Grille {
 
+    //Attributs
 	private Pion[][] grille;
 	public static int NB_LIGNE;
 	public static int NB_COLONNE;
 	private static final int DFAULT_NB_LIGNE = 6;
     private static final int DFAULT_NB_COLONNE = 7;
+
 
     public Grille(int nbColonne, int nbLigne) {
     	NB_LIGNE = nbLigne;
@@ -34,28 +36,6 @@ public class Grille {
     	return grille[indLigne][indCol];
     }
 
-	/*
-    //Attributs
-    private TabPion[] grille;
-    private int nbColonne;
-
-    //Methodes
-    public Grille(int nbColonne, int nbPion) {
-        this.nbColonne = nbColonne;
-        grille = new TabPion[nbColonne];
-        for (int i = 0; i < nbColonne; i++) {
-            grille[i] = new TabPion(nbPion);
-        }
-    }
-
-
-        nbColonne = Jeu.NB_DEFAULT_COLONNE;
-        grille = new TabPion[nbColonne];
-        for (int i = 0; i < nbColonne; i++) {
-            grille[i] = new TabPion();
-        }
-    }
-
     public TabPion getTabPionIndice(int indice) throws IndexOutOfBoundsException {
     	return grille[indice];
     }
@@ -73,14 +53,18 @@ public class Grille {
     }
 
     public String toString() {
-        String result = NULL;
-        for (int i = 0; i<nbColonne; i++) {
-            result += grille[i].toString()+'\n';
+        String result = null;
+        for (int i = 0; i<NB_COLONNE; i++) {
+            for (int j =0 ; j < NB_LIGNE ; j++) {
+                if (grille[i][j] == null) {
+                    result+="|  ";
+                }else {
+                    result+="| "+grille[i][j].getMotif()+" ";
+                }
+            }
+            result+="|\n";
         }
 
         return result;
     }
-    */
-
-
 }

@@ -47,6 +47,18 @@ public class Grille {
         }
     }
 
+    public void placerPion(int colonne) {
+        boolean libre = false;
+        int indiceLigne = 0;
+        do {
+            libre = grille[nbColonne-indiceLigne][colonne].estLibre();
+            indiceLigne++;
+        } while (indiceLigne<nbColonne && !libre);
+        if (indiceLigne == nbColonne) {
+            System.out.println("Colonne pleine");
+        }
+    }
+
     public String toString() {
         String result = NULL;
         for (int i = 0; i<nbColonne; i++) {

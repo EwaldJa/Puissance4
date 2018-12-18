@@ -33,7 +33,7 @@ public class Joueur {
     public String toString() {
         String result = nom+" "+prenom+" ("+motif+")";
 
-        return result;java
+        return result;
     }
 
     public static void main(String[] args) {

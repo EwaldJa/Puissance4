@@ -17,8 +17,15 @@ public class TabPion {
 		this(NB_MAX_PION);
 	}
 
+	public boolean estLibre(int indice) {
+		if (indice < nbPion && indice >= 0) {
+			return tabPion[indice].getMotif() == null;
+		}else {
+			System.out.println("Indice incorrecte");
+		}
+	}
+
 	public void AjouterPion(int x, char motif) {
-		// TODO : mettre le motif le plus bas possible
 		tabPion[x]=new Pion(motif);
 	}
 

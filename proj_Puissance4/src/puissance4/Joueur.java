@@ -13,8 +13,8 @@ public class Joueur {
         this.motif = motif;
     }
 
-    public Joueur(String prenom) {
-        this(prenom, 'X');
+    public Joueur(String pseudo) {
+        this(pseudo, 'X');
     }
 
     public Joueur() {

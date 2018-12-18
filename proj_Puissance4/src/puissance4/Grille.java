@@ -24,39 +24,15 @@ public class Grille {
     }
 
     public Grille(int nbColonne, int nbLigne) {
-    	NB_LIGNE = nbLigne;
-    	NB_COLONNE = nbColonne;
-        grille = new Pion[NB_LIGNE][NB_COLONNE];
-        for (int i = 0; i < NB_LIGNE; i++) {
-            for (int j = 0; j < NB_COLONNE; j++) {
-            	grille[i][j] = null;
-            }
-        }
-        mavue = new VueConsole();
+    	this(nbColonne, nbLigne, new VueConsole());
     }
 
     public Grille(Vue vue) {
-    	NB_LIGNE = DEFAULT_NB_LIGNE;
-    	NB_COLONNE = DEFAULT_NB_LIGNE;
-        grille = new Pion[NB_LIGNE][NB_COLONNE];
-        for (int i = 0; i < NB_LIGNE; i++) {
-            for (int j = 0; j < NB_COLONNE; j++) {
-            	grille[i][j] = null;
-            }
-        }
-        mavue = vue;
+    	this(DEFAULT_NB_COLONNE, DEFAULT_NB_LIGNE, vue);
     }
 
     public Grille() {
-    	NB_LIGNE = 6;
-    	NB_COLONNE = 7;
-        grille = new Pion[NB_LIGNE][NB_COLONNE];
-        for (int i = 0; i < NB_LIGNE; i++) {
-            for (int j = 0; j < NB_COLONNE; j++) {
-            	grille[i][j] = null;
-            }
-        }
-        mavue = new VueConsole();
+        this(DEFAULT_NB_COLONNE, DEFAULT_NB_LIGNE, new VueConsole());
     }
 
     public static int getNbLigne() {

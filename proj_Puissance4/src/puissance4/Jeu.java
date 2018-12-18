@@ -9,14 +9,22 @@ public class Jeu {
 	private Grille maGrille;
 	//valeur que l'on récupére a chaque fois que l'on ajoute un pion à la grille
 	private int[] positionDernierPion;
-	
-	public Jeu() {
-		joueur1 = new Joueur("Joueur1",'X');
-		joueur2 = new Joueur("Joueur2",'O');
-		maGrille = new Grille();
+
+	public Jeu(Joueur joueur1, Joueur joueur2, Grille maGrille) {
+		this.joueur1 = joueur1;
+		this.joueur2 = joueur2;
+		this.maGrille = maGrille;
 		menuConsole();
 	}
-	
+
+	public Jeu(Joueur joueur1, Joueur joueur2) {
+		this(joueur1, joueur2, new Grille());
+	}
+
+	public Jeu() {
+		this(new Joueur("Joueur 1", 'X'), new Joueur("Joueur2", 'O'), new Grille());
+	}
+
 	public void menuConsole() {
 		String res; 
 		

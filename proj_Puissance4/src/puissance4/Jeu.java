@@ -41,6 +41,7 @@ public class Jeu {
 			System.out.println("Dans quelle colonne voulez vous ajoueter votre pion ? \n");
 			System.out.println("Veuilliez entrer un nombre entre 1 et (ajouter nombre de collone de notre grille)" );
 			maGrille.affichage();
+			Scanner sc = new Scanner(System.in);
 			colonne = sc.nextInt();
 			lePion = new Pion(Color.WHITE,leJoueur.getMotif());
 			//On récupére la collone dans laquel le joueur souhaite jouer.

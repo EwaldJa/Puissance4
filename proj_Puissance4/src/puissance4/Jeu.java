@@ -1,6 +1,5 @@
 package puissance4;
 
-import java.awt.Color;
 import java.util.Scanner;
 
 public class Jeu {
@@ -54,6 +53,7 @@ public class Jeu {
 			maGrille.affichage();
 			Scanner sc = new Scanner(System.in);
 			colonne = sc.nextInt();
+			sc.close();
 			lePion = new Pion(/*Color.WHITE,*/leJoueur.getMotif());
 			//On rÃ©cupÃ©re la collone dans laquel le joueur souhaite jouer.
 			//et on crÃ©e le pion qu'il va placer en fonction de son symbole
@@ -64,14 +64,16 @@ public class Jeu {
 				positionDernierPion =  maGrille.placerPion(colonne-1,lePion); //J'ai corrigé l'indice de colonne qui doit commencer à 0 ;)
 				
 			}catch (IndiceIncorrectException e) {
-				System.out.println("L'indice que vous avez entré n'existe pas, recommencez.");
+				//System.out.println("L'indice que vous avez entré n'existe pas, recommencez.");
+				System.out.println(e.getMessage());
 				verifColonnePleine = false;
 			}catch (ColonnePleineException e) {
-				System.out.println("La colonne que vous essayer de remplir est déjà pleine !");
+				//System.out.println("La colonne que vous essayer de remplir est déjà pleine !");
+				System.out.println(e.getMessage());
 				verifColonnePleine = false;
 				
 			}catch (Exception e) {
-				System.out.println("Placement du pion impossible");
+				System.out.println("Erreur, placement du pion impossible");
 			}
 			//On ajoute le pion dans notre grille, si la collone est pleine ou si l'indice entrÃ©e n'existe pas dans le tableau on affiche un message et on recommence
 			
@@ -82,11 +84,80 @@ public class Jeu {
 
 
 	public  boolean partieGagne() {
-
-		//TODO : implÃ©menter cette methode
+		int ligne = positionDernierPion[0];
+		int colonne = positionDernierPion[1];
+		
+		boolean l = gagneeLigne(ligne, colonne, maGrille);
+		boolean c = gagneeColonne(ligne, colonne, maGrille);
+		boolean d = gagneeDiag(ligne, colonne, maGrille);
+		boolean ad = gagneeAntiDiag(ligne, colonne, maGrille);
 
 		return false;
 	}
+	
+	private boolean gagneeLigne(int indLigne, int indColonne, Grille g) {
+		int ligne = indLigne;
+		int colonne =indColonne;
+		int cpt=0;
+		if(ligne!=0) {
+			if(g.getGrille()[ligne][colonne].getMotif() == g.getGrille()[ligne][colonne-1].getMotif()) {
+				colonne--;
+			}
+		}
+		for(int i =0;i<Grille.NB_LIGNE;i++) {
+			if(cpt==3) {
+				return true;
+			}
+			if(g.getGrille()[ligne][colonne].getMotif() == g.getGrille()[ligne][colonne+1].getMotif()) {
+				cpt++;
+				colonne++;
+			}
+			else
+			{
+				cpt=0;
+			}
+			
+		}
+		return false;
+	}
+	
+	public boolean gagneeColonne(int indLigne, int indColonne, Grille g) {
+		int ligne = indLigne;
+		int colonne =indColonne;
+		int cpt=0;
+		if(ligne!=0) {
+			if(g.getGrille()[ligne][colonne].getMotif() == g.getGrille()[ligne-1][colonne].getMotif()) {
+				ligne--;
+			}
+		}
+		for(int i =0;i<Grille.NB_LIGNE;i++) {
+			if(cpt==3) {
+				return true;
+			}
+			if(g.getGrille()[ligne][colonne].getMotif() == g.getGrille()[ligne+1][colonne].getMotif()) {
+				cpt++;
+				ligne++;
+			}
+			else
+			{
+				cpt=0;
+			}
+			
+		}
+		return false;
+		
+	}
+	
+	private boolean gagneeDiag(int indLigne, int indColonne, Grille g) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	private boolean gagneeAntiDiag(int indLigne, int indColonne, Grille g) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 	public void jouerPartie() {
 		boolean laPartieGagne = false; 

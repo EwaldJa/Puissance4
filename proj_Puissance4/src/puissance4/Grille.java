@@ -47,8 +47,8 @@ public class Grille {
 
 
     public int[] placerPion(int col, Pion pion) throws Exception {
-    	if (col >= NB_COLONNE) {
-    		throw new IndiceIncorrectException();
+    	if ( (col >= NB_COLONNE) || (col < 0) ) {
+    		throw new IndiceIncorrectException("Indice non compris dans les indices de colonnes");
     	}
     	else {
     		int i = NB_LIGNE;
@@ -58,7 +58,7 @@ public class Grille {
     				return (new int[] {i,col});
     			}
     		}
-    		throw new ColonnePleineException();
+    		throw new ColonnePleineException("Cette colonne est remplie.");
     	}
     }
 

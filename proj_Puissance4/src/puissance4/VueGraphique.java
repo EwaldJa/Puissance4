@@ -1,7 +1,5 @@
 package puissance4;
 
-import java.awt.Frame;
-
 public class VueGraphique extends Vue {
 	
 	private FramePuissance4 frame;

@@ -3,18 +3,33 @@ package puissance4;
 public class Grille {
 	
 	private Pion[][] grille;
-	private int nbLigne;
-	private int nbColonne;
+	public static int NB_LIGNE;
+	public static int NB_COLONNE;
 	
     public Grille(int nbColonne, int nbLigne) {
-        this.nbLigne = nbLigne;
-        this.nbColonne = nbColonne;
-        grille = new Pion[nbLigne][nbColonne];
-        for (int i = 0; i < nbLigne; i++) {
-            for (int j = 0; j < nbColonne; j++) {
+    	NB_LIGNE = nbLigne;
+    	NB_COLONNE = nbColonne;
+        grille = new Pion[NB_LIGNE][NB_COLONNE];
+        for (int i = 0; i < NB_LIGNE; i++) {
+            for (int j = 0; j < NB_COLONNE; j++) {
             	grille[i][j] = null;
             }
         }
+    }
+    
+    public Grille() {
+    	NB_LIGNE = 6;
+    	NB_COLONNE = 7;
+        grille = new Pion[NB_LIGNE][NB_COLONNE];
+        for (int i = 0; i < NB_LIGNE; i++) {
+            for (int j = 0; j < NB_COLONNE; j++) {
+            	grille[i][j] = null;
+            }
+        }
+    }
+    
+    public Pion getPion(int indLigne, int indCol) throws IndexOutOfBoundsException{
+    	return grille[indLigne][indCol];
     }
 	
 	/*

@@ -3,7 +3,6 @@ package puissance4;
 public class TabPion {
 	private Pion[] tabPion;
 	private int nbPion;
-	private static final NB_DEFAULT_PION = 7;
 
 	public TabPion(int nbPion) {
 		this.nbPion = nbPion;
@@ -14,9 +13,13 @@ public class TabPion {
 	}
 
 	public TabPion() {
-		this(NB_MAX_PION);
+		this(Jeu.NB_DEFAULT_PION);
 	}
-
+	
+	public Pion[] getTabPion() {
+		return tabPion;
+	}
+	
 	public void AjouterPion(int x, char motif) {
 		// TODO : mettre le motif le plus bas possible
 		tabPion[x]=new Pion(motif);

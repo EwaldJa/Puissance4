@@ -11,7 +11,7 @@ public class Jeu {
 	public Jeu() {
 		joueur1 = new Joueur("Joueur1",'X');
 		joueur2 = new Joueur("Joueur2",'O');
-		//Créer une nouvelle grille
+		maGrille = new Grille();
 		menuConsole();
 	}
 	
@@ -41,8 +41,8 @@ public class Jeu {
 			Scanner sc = new Scanner(System.in);
 			collone = sc.nextInt();
 			lePion = new Pion(Color.WHITE,leJoueur.getMotif());
-			//On récupère la collone dans laquel le joueur souhaite jouer.
-			//et on crée le pion qu'il va placer en fonction de son symbole 
+			//On rÃ©cupÃ©re la collone dans laquel le joueur souhaite jouer.
+			//et on crÃ©e le pion qu'il va placer en fonction de son symbole
 			
 			verifCollonePleine = maGrille.placerPion(collone,lePion);
 			//On ajoute le pion dans notre grille, si la collone est pleine on affiche un message et on recommence 
@@ -57,7 +57,7 @@ public class Jeu {
 	public void jouerPartie() {
 		boolean laPartieGagne = false; 
 		Joueur joueurGagnant;
-		//implenter un choix alétoire du premier joueurs
+		//implenter un choix alï¿½toire du premier joueurs
 		//Certainement grace a des pointeur premierJoueur et secondJoueur qui pointe soit sur joueur1 soit sur joueur2
 		
 		int nbTour = 0;

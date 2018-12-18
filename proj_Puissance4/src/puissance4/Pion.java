@@ -14,9 +14,6 @@ public class Pion {
 	public Pion(char motif) {
 		this(null, motif);
 	}
-    public Pion(Color couleur) {
-		this(couleur, null);
-	}
 
 	public char getMotif() {
 		return motif;

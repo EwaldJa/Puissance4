@@ -78,7 +78,6 @@ public class Grille {
     			}
     		}
     		throw new ColonnePleineException();
-    		return null;
     	}
     }
     

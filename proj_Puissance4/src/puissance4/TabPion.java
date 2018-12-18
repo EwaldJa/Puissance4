@@ -23,13 +23,13 @@ public class TabPion {
 
 	public boolean estLibre(int indice) {
 		if (indice < nbPion && indice >= 0) {
-			return tabPion[indice].getMotif() == null;
+			return (tabPion[indice] == null);
 		}else {
-			System.out.println("Indice incorrecte");
+			return false;
 		}
 	}
 
-	public void AjouterPion(int x, char motif) {
+	public void ajouterPion(int x, char motif) {
 		tabPion[x]=new Pion(motif);
 	}
 
@@ -49,9 +49,9 @@ public class TabPion {
 
 	public static void main(String[] args) {
 		TabPion tab= new TabPion(6);
-		tab.AjouterPion(2,'x');
-		tab.AjouterPion(4,'o');
-		tab.AjouterPion(5,'o');
+		tab.ajouterPion(2,'x');
+		tab.ajouterPion(4,'o');
+		tab.ajouterPion(5,'o');
 		System.out.println();
 		System.out.println(tab.toString());
 	}

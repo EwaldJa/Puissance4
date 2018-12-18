@@ -1,50 +1,46 @@
 package puissance4;
 
 public class Grille {
+	
+	private Pion[][] grille;
+	private int nbLigne;
+	private int nbColonne;
+	
+    public Grille(int nbColonne, int nbLigne) {
+        this.nbLigne = nbLigne;
+        this.nbColonne = nbColonne;
+        grille = new Pion[nbLigne][nbColonne];
+        for (int i = 0; i < nbLigne; i++) {
+            for (int j = 0; j < nbColonne; j++) {
+            	grille[i][j] = null;
+            }
+        }
+    }
+	
+	/*
     //Attributs
     private TabPion[] grille;
     private int nbColonne;
-    private static final NB_DEFAULT_COLONNE = 6;
 
     //Methodes
     public Grille(int nbColonne, int nbPion) {
         this.nbColonne = nbColonne;
-        grille = new tabPion[nbColonne];
+        grille = new TabPion[nbColonne];
         for (int i = 0; i < nbColonne; i++) {
             grille[i] = new TabPion(nbPion);
         }
     }
-
-    public Grille(int nbColonne) {
-        this.nbColonne = nbColonne;
-        grille = new tabPion[nbColonne];
+    
+    
+        nbColonne = Jeu.NB_DEFAULT_COLONNE;
+        grille = new TabPion[nbColonne];
         for (int i = 0; i < nbColonne; i++) {
             grille[i] = new TabPion();
         }
     }
 
-    public Grille(int nbPion) {
-        this.nbColonne = NB_DEFAULT_COLONNE;
-        grille = new tabPion[this.nbColonne];
-        for (int i = 0; i < this.nbColonne; i++) {
-            grille[i] = new TabPion(nbPion);
-        }
-    }
-
-    public Grille() {
-        this.nbColonne = NB_DEFAULT_COLONNE;
-        grille = new tabPion[this.nbColonne];
-        for (int i = 0; i < this.nbColonne; i++) {
-            grille[i] = new TabPion();
-        }
-    }
-
-    public TabPion getTabPionIndice(int indice) {
-        if (indice < nbColonne && indice >= 0) {
-            return tabPion[i]
-        }else {
-            System.out/println("indice incorrecte : impossible d'accéder à la colonne");
-        }
+    public TabPion getTabPionIndice(int indice) throws IndexOutOfBoundsException {
+    	return grille[indice];
     }
 
     public void placerPion(int colonne) {
@@ -67,4 +63,7 @@ public class Grille {
 
         return result;
     }
+    */
+    
+    
 }

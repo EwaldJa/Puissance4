@@ -20,8 +20,8 @@ public class Grille {
     }
 
     public Grille() {
-    	NB_LIGNE = 6;
-    	NB_COLONNE = 7;
+    	NB_LIGNE = DFAULT_NB_LIGNE;
+    	NB_COLONNE = DFAULT_NB_COLONNE;
         grille = new Pion[NB_LIGNE][NB_COLONNE];
         for (int i = 0; i < NB_LIGNE; i++) {
             for (int j = 0; j < NB_COLONNE; j++) {

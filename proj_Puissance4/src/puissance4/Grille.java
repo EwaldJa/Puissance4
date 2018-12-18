@@ -5,6 +5,8 @@ public class Grille {
 	private Pion[][] grille;
 	private int nbLigne;
 	private int nbColonne;
+	private static final int DFAULT_NB_LIGNE = 6;
+    private static final int DFAULT_NB_COLONNE = 7;
 	
     public Grille(int nbColonne, int nbLigne) {
         this.nbLigne = nbLigne;
@@ -16,8 +18,12 @@ public class Grille {
             }
         }
     }
-	
-	/*
+
+    public Grille() {
+        this(DFAULT_NB_COLONNE, DFAULT_NB_LIGNE);
+    }
+
+    /*
     //Attributs
     private TabPion[] grille;
     private int nbColonne;

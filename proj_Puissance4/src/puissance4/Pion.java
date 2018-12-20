@@ -14,6 +14,10 @@ public class Pion {
 	public Pion(char motif) {
 		this(new Color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255)), motif);
 	}
+	
+	public Pion() {
+		this(Color.LIGHT_GRAY, ' ');
+	}
 
 	public char getMotif() {
 		return motif;

@@ -8,7 +8,7 @@ public class VueGraphique extends Vue {
 		this.frame = new FramePuissance4();
 	}
 	
-	public void affichage(Pion[][] grille) {
+	public void affichage(Grille grille) {
 		frame.affichage(grille);
 	}
 	

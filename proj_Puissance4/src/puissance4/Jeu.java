@@ -14,7 +14,7 @@ public class Jeu {
 		this.joueur2 = joueur2;
 		this.maGrille = maGrille;
 		positionDernierPion = new int[2];
-		menuConsole();
+		//menuConsole();
 	}
 
 	public Jeu(Joueur joueur1, Joueur joueur2) {
@@ -44,17 +44,17 @@ public class Jeu {
 	public void jouerTour(Joueur leJoueur) {
 		int colonne; 
 		Pion lePion;
+		maGrille.affichage();
 		boolean verifColonnePleine = false;
 		while (!verifColonnePleine) {
 			//tant que l'on ne place pas le pion dans une collone vide on recommence 
 			
 			System.out.println("Dans quelle colonne voulez vous ajoueter votre pion ? \n");
-			System.out.println("Veuillez entrer un nombre entre 1 et" + Grille.NB_COLONNE);    //(ajouter nombre de colonne de notre grille)
-			maGrille.affichage();
+			System.out.println("Veuillez entrer un nombre entre 1 et" + maGrille.getNbColonne());    //(ajouter nombre de colonne de notre grille)
 			Scanner sc = new Scanner(System.in);
 			colonne = sc.nextInt();
 			sc.close();
-			lePion = new Pion(/*Color.WHITE,*/leJoueur.getMotif());
+			lePion = new Pion(/*remplacer Color.WHITE par lejoueur.getColor(),*/leJoueur.getMotif());
 			//On récupére la collone dans laquel le joueur souhaite jouer.
 			//et on crée le pion qu'il va placer en fonction de son symbole
 			
@@ -78,6 +78,7 @@ public class Jeu {
 			//On ajoute le pion dans notre grille, si la collone est pleine ou si l'indice entrée n'existe pas dans le tableau on affiche un message et on recommence
 			
 		}
+		maGrille.affichage();
 		
 		
 	}
@@ -92,7 +93,7 @@ public class Jeu {
 		boolean d = gagneeDiag(ligne, colonne, maGrille);
 		boolean ad = gagneeAntiDiag(ligne, colonne, maGrille);
 
-		return false;
+		return (l || c || d || ad);
 	}
 	
 	private boolean gagneeLigne(int indLigne, int indColonne, Grille g) {
@@ -104,7 +105,7 @@ public class Jeu {
 				colonne--;
 			}
 		}
-		for(int i =0;i<Grille.NB_LIGNE;i++) {
+		for(int i =0;i<maGrille.getNbLigne();i++) {
 			if(cpt==3) {
 				return true;
 			}
@@ -130,7 +131,7 @@ public class Jeu {
 				ligne--;
 			}
 		}
-		for(int i =0;i<Grille.NB_LIGNE;i++) {
+		for(int i =0;i<maGrille.getNbLigne();i++) {
 			if(cpt==3) {
 				return true;
 			}
@@ -168,6 +169,7 @@ public class Jeu {
 		int nbTour = 0;
 		
 		while (!laPartieGagne || (nbTour < maGrille.getNbColonne()*maGrille.getNbLigne())) {
+			
 			// TODO : verifier si la partie est gagné seulement pour le dernoer pion posé (vérifié seulement autour du pion)
 			if (nbTour%2 == 0) {
 				jouerTour(joueur1);

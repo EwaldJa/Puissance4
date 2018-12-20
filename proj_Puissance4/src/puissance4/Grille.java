@@ -4,7 +4,7 @@ public class Grille {
 
     //Attributs
 	private Pion[][] grille;
-    public static int NB_LIGNE, NB_COLONNE;
+    private int NB_LIGNE, NB_COLONNE;
     public static final int DEFAULT_NB_LIGNE = 6, DEFAULT_NB_COLONNE = 7;
     private Vue mavue;
 
@@ -15,7 +15,7 @@ public class Grille {
         grille = new Pion[NB_LIGNE][NB_COLONNE];
         for (int i = 0; i < NB_LIGNE; i++) {
             for (int j = 0; j < NB_COLONNE; j++) {
-            	grille[i][j] = null;
+            	grille[i][j] = new Pion();
             }
         }
         mavue = vue;
@@ -30,7 +30,7 @@ public class Grille {
     }
 
     public Grille() {
-        this(DEFAULT_NB_LIGNE, DEFAULT_NB_COLONNE, new VueConsole());
+        this(DEFAULT_NB_LIGNE, DEFAULT_NB_COLONNE, new VueGraphique());
     }
 
     public int getNbLigne() {
@@ -51,7 +51,7 @@ public class Grille {
     		throw new IndiceIncorrectException("Indice non compris dans les indices de colonnes");
     	}
     	else {
-    		int i = NB_LIGNE;
+    		int i = NB_LIGNE-1;
     		while(i>=0) {
     			if (grille[i][col] == null) {
     				grille[i][col] = pion;
@@ -64,7 +64,7 @@ public class Grille {
 
 
     public void affichage() {
-    	mavue.affichage(grille);
+    	mavue.affichage(this);
     }
 
     public Pion[][] getGrille(){

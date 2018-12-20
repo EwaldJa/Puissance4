@@ -2,11 +2,12 @@ package puissance4;
 
 public class VueConsole extends Vue {
 
-	public void affichage(Pion[][] grille) {
+	public void affichage(Grille lagrille) {
+		Pion[][] grille = lagrille.getGrille();
 		String affichage;
-		for (int i = 0; i < Grille.NB_LIGNE; i++) {
+		for (int i = 0; i < lagrille.getNbLigne(); i++) {
 			affichage = "";
-			for (int j = 0; j < Grille.NB_COLONNE; j++) {
+			for (int j = 0; j < lagrille.getNbColonne(); j++) {
 				if (grille[i][j] == null) {
 					affichage += "| ";
 				}

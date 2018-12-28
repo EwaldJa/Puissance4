@@ -17,10 +17,10 @@ public class CanvasPuissance4 extends Canvas {
 	
 	public void paint(Graphics g) {
 		Pion monpion;
-		int coordX; //Initilisation de la coordonnée abscisse(colonne) de la case courante, angle gauche supérieur
-		int coordY = FramePuissance4.GAP_CASE; //Initilisation de la coordonnée ordonnée(ligne) de la case courante, angle gauche supérieur
+		int coordX; //Initilisation de la coordonnee abscisse(colonne) de la case courante, angle gauche superieur
+		int coordY = FramePuissance4.GAP_CASE; //Initilisation de la coordonnee ordonnee(ligne) de la case courante, angle gauche superieur
 		for(int y=0; y < grille.getNbLigne(); y++) { //boucle qui parcourt les lignes (y = hauteur = ligne)
-			coordX = FramePuissance4.GAP_CASE; //réinitialisation de l'indice d'affichage en colonnes quand une ligne est terminée
+			coordX = FramePuissance4.GAP_CASE; //reinitialisation de l'indice d'affichage en colonnes quand une ligne est terminee
 			for(int x=0; x < grille.getNbColonne(); x++) { //boucle qui parcourt les colonnes (x = abscisse = colonne)
 				monpion = grille.getPion(y,x);
 				g.setColor(Color.LIGHT_GRAY); //case vide

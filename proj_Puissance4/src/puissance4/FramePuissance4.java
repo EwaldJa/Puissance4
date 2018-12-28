@@ -3,12 +3,15 @@ package puissance4;
 import java.awt.*;
 
 public class FramePuissance4 extends Frame {
-	
+
+	// Attributs
+
 	public static final int COTE_CASE = 50, GAP_CASE = 10;
 	private int HAUTEUR, LARGEUR;
-	
 	private CanvasPuissance4 canvas;
-	
+
+	// Methods
+
 	public FramePuissance4() {
 		canvas = new CanvasPuissance4();
 		
@@ -42,4 +45,6 @@ public class FramePuissance4 extends Frame {
 	public CanvasPuissance4 getCanvas() {
 		return canvas;
 	}
+
+
 }

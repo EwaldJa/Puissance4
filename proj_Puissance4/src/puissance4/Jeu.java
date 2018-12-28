@@ -61,14 +61,14 @@ public class Jeu {
 			
 			verifColonnePleine = true;
 			try{
-				positionDernierPion =  maGrille.placerPion(colonne-1,lePion); //J'ai corrigé l'indice de colonne qui doit commencer à 0 ;)
+				positionDernierPion =  maGrille.placerPion(colonne-1,lePion); //J'ai corrigï¿½ l'indice de colonne qui doit commencer ï¿½ 0 ;)
 				
 			}catch (IndiceIncorrectException e) {
-				//System.out.println("L'indice que vous avez entré n'existe pas, recommencez.");
+				//System.out.println("L'indice que vous avez entrï¿½ n'existe pas, recommencez.");
 				System.out.println(e.getMessage());
 				verifColonnePleine = false;
 			}catch (ColonnePleineException e) {
-				//System.out.println("La colonne que vous essayer de remplir est déjà pleine !");
+				//System.out.println("La colonne que vous essayer de remplir est dï¿½jï¿½pleine !");
 				System.out.println(e.getMessage());
 				verifColonnePleine = false;
 				
@@ -170,7 +170,7 @@ public class Jeu {
 		
 		while (!laPartieGagne || (nbTour < maGrille.getNbColonne()*maGrille.getNbLigne())) {
 			
-			// TODO : verifier si la partie est gagnÃ© seulement pour le dernoer pion posÃ© (vÃ©rifiÃ© seulement autour du pion)
+			// TODO : verifier si la partie est gagnÃ© seulement pour le dernier pion posÃ© (vÃ©rifiÃ© seulement autour du pion)
 			if (nbTour%2 == 0) {
 				jouerTour(joueur1);
 			}

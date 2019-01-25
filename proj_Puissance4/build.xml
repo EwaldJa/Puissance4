@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project default="javadoc"  name = "Puissance4">
+	
+	<target name = "run" description="Lance le programme une fois qu'il a été compilé" depends = "compile">
+		<java classname = "projPuissance4.Puissance4Test">
+		<classpath path = "ProjCompile"/>
+		</java>
+	</target>
+	<target name="compile">
+		<mkdir dir="./ProjCompile"/>
+		<javac includeantruntime="false" srcdir="./src" destdir="ProjCompile"/>
+	</target>
+	<target name="javadoc">
+		<javadoc sourcepath  ="src" destdir="JavaDoc">
+			<fileset dir="src" defaultexcludes="yes">
+				<include name = "**"/>
+			</fileset>
+		</javadoc>
+	</target>
+	<target name="deleteJavadoc">
+		<delete>
+			<fileset dir="JavaDoc" includes="**"/> 
+			<dirset dir="JavaDoc" includes="**"/>
+		</delete>
+	</target>
+	<target name="deleteProjCompile">
+		<delete>
+			<fileset dir="ProjCompile" includes="**"/> 
+			<dirset dir="ProjCompile" includes="**"/>
+		</delete>
+	</target>
+</project>

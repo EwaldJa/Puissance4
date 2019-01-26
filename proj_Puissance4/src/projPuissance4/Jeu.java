@@ -21,7 +21,7 @@ public class Jeu {
 		tabjoueurs = new Joueur[nbj];
 		this.flag=0;
 		for (int i = 0; i < nbj; i++) {
-			System.out.println("Veuillez choisir votre motif joueur " + (i+1) + ": \n (Il s'agît d'un charactère)\n");
+			System.out.println("Veuillez choisir votre motif joueur " + (i+1) + ": \n (Il s'agï¿½t d'un charactï¿½re)\n");
 
 			char c = ClavierReader.getChar();
 			tabjoueurs[i]=new Joueur(c);
@@ -47,7 +47,6 @@ public class Jeu {
 		flag = 0;
 	}
 
-	
 	public boolean update() {
 		int col = -1;
 		try {
@@ -57,7 +56,7 @@ public class Jeu {
 			
 			if( grille.AjouterPion(col-1, tabjoueurs[flag]) ) {
 				vue.afficher();
-				System.out.println("Félicitations, Joueur " + (flag+1) + ", vous venez de gagner la partie !");
+				System.out.println("FÃ©licitations, Joueur " + (flag+1) + ", vous venez de gagner la partie !");
 				return true;
 			}
 			else {
@@ -81,7 +80,6 @@ public class Jeu {
 		} 
 		return false;
 	}
-	
 
 	public boolean updateGraphique(int col) {
 		try {
@@ -116,36 +114,52 @@ public class Jeu {
 			ps.println();
 		}
 	}
+
 	public boolean jouer() {
 		if (vue instanceof VueConsole) {while(!update()) {} return true;}
 		return false;
 	}
+
 	public void dispose() {
 		vue.dispose();
 	}
+
 	public Grille getGrille() {
 		return grille;
 	}
-	public void SetGrille(Grille g, int f, Joueur[] tabj) {
+
+	public void SetGrille(Grille g) {
 		grille= g;
-		flag=f;
-		tabjoueurs = tabj;
 	}
+
 	public int getFlag() {
 		return flag;
 	}
+
+	public void setFlag(int f) {
+		flag = f;
+	}
+
 	public Joueur[] getTabJoueurs() {
 		return tabjoueurs;
 	}
+
+	public void setTabJoueurs(Joueur[] tabj) {
+		tabjoueurs = tabj;
+	}
+
 	public int getLignes() {
 		return grille.getNbLigne();
 	}
+
 	public int getColonnes() {
 		return grille.getNbColonne();
 	}
+
 	public int getAlignement() {
 		return grille.getAlignement();
 	}
+
 	public boolean getGraphismes() {
 		return (vue instanceof VueGraphique);
 	}

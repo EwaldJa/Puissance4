@@ -5,6 +5,7 @@ import java.awt.event.*;
 public class LancementListener implements ActionListener {
 
 	private LaunchFrame myframe;
+
 	public LancementListener(LaunchFrame launchFrame) {
 		myframe = launchFrame;
 	}

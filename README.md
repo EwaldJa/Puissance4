@@ -4,10 +4,21 @@
 ---
 ## Disposition des fichiers
 
+notre equipe est composée de :
+
+- ARMANET Nathan
+- JANIN Ewald
+-
+-
+
 ### UML/
 
-    Contient les diagrammes UML
+Contient les diagrammes UML
 
 ### src/
 
-    Contient le code
+Contient le code
+
+## lien GitHUB
+
+https://github.com/NathanARMANET/APO-Projet-Puissance4

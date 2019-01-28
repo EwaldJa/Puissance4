@@ -6,8 +6,8 @@ Notre equipe est composée de :
 
 - ARMANET Nathan
 - JANIN Ewald
-- Joachim
-- Luca
+- PIQUERET Joachim
+- SAVIO Luca
 
 ## Répartition des tâches
 

@@ -2,7 +2,7 @@ package projPuissance4;
 
 public class Puissance4Test {
 
-	public static void main(String[] args) {
+	public static void main (String[] args) {
 		// TODO Auto-generated method stub
 		new LaunchFrame();
 		/*

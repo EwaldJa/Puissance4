@@ -160,7 +160,7 @@ public class Jeu {
 			new FrameErreur(e.getMessage());
 			//System.out.println(e.getMessage());
 		} catch(Exception e) {
-			new FrameErreur(e.getMessage());
+			new FrameErreur(e.toString());
 			//e.printStackTrace();
 		} 
 		return false;
@@ -173,9 +173,9 @@ public class Jeu {
 			if(flag==0) {
 				System.out.println("Dans quelle colonne voulez vous jouer ? \n");
 				col = ClavierReader.getInt();
-				grille.AjouterPion(col-1, tabjoueurs[0]);
 				if( grille.AjouterPion(col-1, tabjoueurs[flag]) ) {
 					vue.afficher();
+					System.out.println("Félicitations, Joueur " + (flag+1) + ", vous venez de gagner la partie !");
 					return true;
 				}
 				else {
@@ -186,14 +186,17 @@ public class Jeu {
 				this.SetGrille(ia.jouer(grille), 0, new Joueur[] {tabjoueurs[0], ia});
 				if (grille.verifGagne()) {
 					vue.afficher();
+					System.out.println("Malheureusement, Joueur " + (flag+1) + ", vous venez de perdre la partie !");
 					return true;
 				}
 			}
 		} catch(HorsPlateauException e) {
 			System.out.println(e.getMessage());
-		}
-		catch(ColonnePleineException e) {
+		} catch(ColonnePleineException e) {
 			System.out.println(e.getMessage());
+		} catch(Exception e) {
+			viderAffichage(System.out);
+			e.printStackTrace();
 		}
 		return false;
 		
@@ -208,8 +211,10 @@ public class Jeu {
 					return true;
 				}
 				else {
+					vue.afficher();
 					flag = 1;
 					this.SetGrille(ia.jouer(grille), 0);
+					vue.afficher();
 					if (grille.verifGagne()) {
 						vue.afficher();
 						return true;
@@ -228,7 +233,7 @@ public class Jeu {
 			new FrameErreur(e.getMessage());
 			//System.out.println(e.getMessage());
 		} catch(Exception e) {
-			new FrameErreur(e.getMessage());
+			new FrameErreur(e.toString());
 			//e.printStackTrace();
 		} 
 		return false;

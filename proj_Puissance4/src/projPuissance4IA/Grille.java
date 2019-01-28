@@ -4,9 +4,7 @@ import java.awt.Color;
 
 public class Grille {
 	private Pion[][] grille;
-	private int nb_ligne;
-	private int nb_colonne;
-	private int alignement;
+	private int nb_ligne, nb_colonne, alignement;
 	public static final int DEFAULT_LIGNE = 6, DEFAULT_COLONNE = 7, DEFAULT_ALIGNEMENT = 4;
 	private int derniereColonne;
 	private Joueur dernierJoueur;
@@ -46,7 +44,7 @@ public class Grille {
 			}
 		}
 		grille[colonne][ligne] = j.getPion();
-		this.derniereColonne=colonne;
+		this.derniereColonne = colonne;
 		this.dernierJoueur = j;
 		return verifGagne(colonne, ligne, j.getCouleur());
 	}
@@ -74,8 +72,11 @@ public class Grille {
 	public int getHeight(int colonne) {
 		int cpt=0;
 		for(int i=0;i<nb_ligne;i++) {
-			if(grille[nb_ligne-1-i][colonne].getMotif() != ' ') {
+			if(grille[colonne][nb_ligne-1-i].getMotif() != ' ') {
 				cpt++;
+			}
+			else {
+				return cpt;
 			}
 		}
 		return cpt;
@@ -86,7 +87,14 @@ public class Grille {
 	}
 	
 	public boolean verifGagne() {
-		return (verifGagne(derniereColonne, getHeight(derniereColonne), dernierJoueur.getCouleur()));
+		for(int i=0;i<nb_ligne;i++) {
+			for(int j=0;j<nb_colonne;j++) {
+				if (verifGagne(j, i, dernierJoueur.getCouleur())) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 	public boolean ligneGagnee(int colonnejouee, int lignejouee, Color couleur) {

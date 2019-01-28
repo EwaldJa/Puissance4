@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<project default="javadoc"  name = "Puissance4">
+<project default="run"  name = "Puissance4">
 	
 	<target name = "run" description="Lance le programme une fois qu'il a été compilé" depends = "compile">
 		<java classname = "projPuissance4.Puissance4Test">

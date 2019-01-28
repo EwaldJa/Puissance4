@@ -1,4 +1,4 @@
-package projPuissance4;
+package projPuissance4IA;
 
 import java.io.PrintStream;
 
@@ -38,6 +38,13 @@ public class Jeu {
 	private Vue vue;
 	
 	/**
+	 * IA pour jeu Joueur vs Ordinateur 1v1
+	 * 
+	 * @see IA
+	 */
+	private IA ia;
+	
+	/**
 	 * Constructeur qui demande aux joueurs les différents paramètres du jeu via la console
 	 * vueGraph est un booléen qui décide de la vue graphique (true) ou console (false)
 	 * 
@@ -61,7 +68,7 @@ public class Jeu {
 			tabjoueurs[i]=new Joueur(c);
 		}
 		if (vueGraph) {
-			vue = new VueGraphique(this);
+			vue = new VueGraphique(this, false);
 		}
 		else {
 			vue = new VueConsole(this);
@@ -77,17 +84,18 @@ public class Jeu {
 	 * @param align
 	 * @param tabj
 	 */
-	public Jeu(boolean vueGraph, int lignes, int colonnes, int align, Joueur[] tabj) {
+	public Jeu(boolean vueGraph, int lignes, int colonnes, int align, Joueur[] tabj, boolean iaEnabled, IA ia) {
 		if(lignes < 4) {lignes = 4;}
 		grille = new Grille(colonnes, lignes, align);
 		tabjoueurs = tabj;
 		if (vueGraph) {
-			vue = new VueGraphique(this);
+			vue = new VueGraphique(this, iaEnabled);
 		}
 		else {
 			vue = new VueConsole(this);
 		}
 		flag = 0;
+		this.ia = ia;
 	}
 
 	/**
@@ -158,14 +166,82 @@ public class Jeu {
 		return false;
 	}
 	
+	public boolean updateIAConsole() {
+		int col = -1;
+		System.out.println(grille.toString());
+		try {
+			if(flag==0) {
+				System.out.println("Dans quelle colonne voulez vous jouer ? \n");
+				col = ClavierReader.getInt();
+				grille.AjouterPion(col-1, tabjoueurs[0]);
+				if( grille.AjouterPion(col-1, tabjoueurs[flag]) ) {
+					vue.afficher();
+					return true;
+				}
+				else {
+					flag = 1;
+				}
+			}
+			else {
+				this.SetGrille(ia.jouer(grille), 0, new Joueur[] {tabjoueurs[0], ia});
+				if (grille.verifGagne()) {
+					vue.afficher();
+					return true;
+				}
+			}
+		} catch(HorsPlateauException e) {
+			System.out.println(e.getMessage());
+		}
+		catch(ColonnePleineException e) {
+			System.out.println(e.getMessage());
+		}
+		return false;
+		
+	}
+	
+	public boolean updateIAGraphique(int col) {
+		try {
+			vue.afficher();			
+			if(flag==0) {
+				if( grille.AjouterPion(col-1, tabjoueurs[flag]) ) {
+					vue.afficher();
+					return true;
+				}
+				else {
+					flag = 1;
+					this.SetGrille(ia.jouer(grille), 0);
+					if (grille.verifGagne()) {
+						vue.afficher();
+						return true;
+					}
+				}
+			}
+			if(flag == tabjoueurs.length) {
+				flag = 0;
+			}
+			vue.afficher();
+			
+		} catch(HorsPlateauException e) {
+			new FrameErreur(e.getMessage());
+			//System.out.println(e.getMessage());
+		} catch(ColonnePleineException e) {
+			new FrameErreur(e.getMessage());
+			//System.out.println(e.getMessage());
+		} catch(Exception e) {
+			new FrameErreur(e.getMessage());
+			//e.printStackTrace();
+		} 
+		return false;
+	}
+	
 	private void viderAffichage(PrintStream ps) {
 		for (int i = 0; i < 50; i++) {
 			ps.println();
 		}
 	}
-	public boolean jouer() {
-		if (vue instanceof VueConsole) {while(!update()) {} return true;}
-		return false;
+	public boolean jouer(boolean iaEnabled) {
+		if (iaEnabled) {if (vue instanceof VueConsole) {while(!updateIAConsole()) {} return true;}return false;}
+		else {if (vue instanceof VueConsole) {while(!update()) {} return true;}return false;}
 	}
 	public void dispose() {
 		vue.dispose();
@@ -177,6 +253,10 @@ public class Jeu {
 		grille= g;
 		flag=f;
 		tabjoueurs = tabj;
+	}
+	public void SetGrille(Grille g, int f) {
+		grille= g;
+		flag=f;
 	}
 	public int getFlag() {
 		return flag;
@@ -195,5 +275,9 @@ public class Jeu {
 	}
 	public boolean getGraphismes() {
 		return (vue instanceof VueGraphique);
+	}
+
+	public IA getIA() {
+		return ia;
 	}
 }

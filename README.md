@@ -21,7 +21,7 @@ Luca a été responsable de la création de l'IA.
 
 ### UML/
 
-Contient le diagramme UML de classes.
+Contient les diagrammes UML de classes et d'activité.
 
 _Suite à un problème concernant l'intégration de l'IA à l'interface graphique, nous n'avons malheureusement pas eu le temps de rajouter les classes de l'IA sur le diagramme de classes._
 
@@ -29,6 +29,11 @@ _Suite à un problème concernant l'intégration de l'IA à l'interface graphiqu
 ### src/
 
 Contient le code
+
+#### IA
+
+Notre IA se base sur la méthode nommé "Recherche arborescente Monte-Carlo".
+Pour créer l'IA avec cette méthode, nous nous sommes aidés d'un algorithme utilisant la même méthode dans le cadre un morpion.
 
 ## Lien GitHub
 

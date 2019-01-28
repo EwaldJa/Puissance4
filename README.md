@@ -1,15 +1,23 @@
 # APO-Projet-Puissance4
 ---
 ## Projet de TP APO en 3A INFO
----
-## Disposition des fichiers
 
-notre equipe est composée de :
+Notre equipe est composée de :
 
 - ARMANET Nathan
 - JANIN Ewald
 - Joachim
 - Luca
+
+## Répartition des tâches
+
+Nous nous sommes répartis les tâches de la manière suivante :
+
+Nathan et Joachim ont été chargés des diagrammes UML et de la correction des bugs.
+Ewald a été responsable de la création de la fenêtre graphique.
+Luca a été responsable de la création de l´IA.
+
+## Disposition des fichiers
 
 ### UML/
 

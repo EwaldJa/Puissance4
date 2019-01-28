@@ -7,7 +7,6 @@ import java.awt.*;
 public class CanvasPuissance4 extends Canvas {
 	
 	private static final long serialVersionUID = 1L;
-	
 	private Grille grille;
 	private Jeu jeu;
 	
@@ -53,7 +52,7 @@ public class CanvasPuissance4 extends Canvas {
 			coordY += FramePuissance4.MARGE;
 		}
 		coordY += (FramePuissance4.MARGE * 4);
-		g.drawString("C'est au tour du n°" + Integer.toString(jeu.getFlag() + 1), coordX, coordY);
+		g.drawString("C'est au tour du nï¿½" + Integer.toString(jeu.getFlag() + 1), coordX, coordY);
 	}
 
 }

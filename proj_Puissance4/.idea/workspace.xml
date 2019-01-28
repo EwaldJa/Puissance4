@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80b7dd4d-ace1-4b5b-939b-05ff1e77d261" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projPuissance4/CanvasPuissance4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projPuissance4/CanvasPuissance4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/CanvasPuissance4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/ColonnePleineException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/FrameListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/FramePuissance4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/Grille.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/IndiceIncorrectException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/Jeu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/Joueur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/Pion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/Puissance4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/Vue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/VueConsole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/VueGraphique.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/puissance4/package-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UML/dia-classes.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/../UML/dia-classes.graphml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,10 +14,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameCouleurPrise.java">
+        <entry file="file://$PROJECT_DIR$/src/projPuissance4/Puissance4Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="8" column="30" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="30" />
+            <state relative-caret-position="90">
+              <caret line="6" column="23" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -48,10 +32,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projPuissance4/AjoutJoueurListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+              <folding>
+                <element signature="method#AjoutJoueurListener#0;class#AjoutJoueurListener#0" />
+                <element signature="method#actionPerformed#0;class#AjoutJoueurListener#0" />
+                <element signature="method#verifCouleur#0;class#AjoutJoueurListener#0" />
+                <element signature="method#trouverCouleur#0;class#AjoutJoueurListener#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projPuissance4/LancementListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="23" column="12" selection-start-line="23" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/projPuissance4/QuitterListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projPuissance4/CanvasPuissance4MouseListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+            <state relative-caret-position="60">
+              <caret line="5" column="63" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="63" />
               <folding>
                 <element signature="method#CanvasPuissance4MouseListener#0;class#CanvasPuissance4MouseListener#0" />
                 <element signature="method#mousePressed#0;class#CanvasPuissance4MouseListener#0" />
@@ -69,75 +86,6 @@
                 <element signature="method#CanvasPuissance4KeyListener#0;class#CanvasPuissance4KeyListener#0" />
                 <element signature="method#keyPressed#0;class#CanvasPuissance4KeyListener#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/projPuissance4/AjoutJoueurListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-              <folding>
-                <element signature="method#AjoutJoueurListener#0;class#AjoutJoueurListener#0" />
-                <element signature="method#actionPerformed#0;class#AjoutJoueurListener#0" />
-                <element signature="method#verifCouleur#0;class#AjoutJoueurListener#0" />
-                <element signature="method#trouverCouleur#0;class#AjoutJoueurListener#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameErreur.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="24" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projPuissance4/FramePuissance4.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="96" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="96" />
-              <folding>
-                <element signature="method#FramePuissance4#0;class#FramePuissance4#0" />
-                <element signature="method#affichage#0;class#FramePuissance4#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projPuissance4/CanvasPuissance4.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
-              <folding>
-                <element signature="method#CanvasPuissance4#0;class#CanvasPuissance4#0" />
-                <element signature="method#affichage#0;class#CanvasPuissance4#0" />
-                <element signature="method#paint#0;class#CanvasPuissance4#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameJoueursPleins.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -193,7 +141,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -216,6 +163,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -306,9 +254,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.41751269" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.41697192" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -317,7 +265,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32990867" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32875144" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32857144" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -461,20 +409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projPuissance4/QuitterListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projPuissance4/Puissance4Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projPuissance4/Pion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -493,17 +427,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projPuissance4/LancementListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="12" selection-start-line="23" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameVictoire.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameCouleurPrise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameErreur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projPuissance4/FramePuissance4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="96" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="96" />
+          <folding>
+            <element signature="method#FramePuissance4#0;class#FramePuissance4#0" />
+            <element signature="method#affichage#0;class#FramePuissance4#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -519,24 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projPuissance4/FramePuissance4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="96" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="96" />
-          <folding>
-            <element signature="method#FramePuissance4#0;class#FramePuissance4#0" />
-            <element signature="method#affichage#0;class#FramePuissance4#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameJoueursPleins.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -544,35 +485,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameErreur.java">
+    <entry file="file://$PROJECT_DIR$/src/projPuissance4/Puissance4Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projPuissance4/FrameCouleurPrise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projPuissance4/ClavierReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projPuissance4/CanvasPuissance4MouseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding>
-            <element signature="method#CanvasPuissance4MouseListener#0;class#CanvasPuissance4MouseListener#0" />
-            <element signature="method#mousePressed#0;class#CanvasPuissance4MouseListener#0" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -587,6 +503,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/projPuissance4/CanvasPuissance4MouseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="63" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="63" />
+          <folding>
+            <element signature="method#CanvasPuissance4MouseListener#0;class#CanvasPuissance4MouseListener#0" />
+            <element signature="method#mousePressed#0;class#CanvasPuissance4MouseListener#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projPuissance4/ClavierReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/projPuissance4/AjoutJoueurListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -597,6 +531,20 @@
             <element signature="method#verifCouleur#0;class#AjoutJoueurListener#0" />
             <element signature="method#trouverCouleur#0;class#AjoutJoueurListener#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projPuissance4/LancementListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" column="12" selection-start-line="23" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projPuissance4/QuitterListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>

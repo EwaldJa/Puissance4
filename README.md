@@ -15,13 +15,16 @@ Nous nous sommes répartis les tâches de la manière suivante :
 
 Nathan et Joachim ont été chargés des diagrammes UML et de la correction des bugs.
 Ewald a été responsable de la création de la fenêtre graphique.
-Luca a été responsable de la création de l´IA.
+Luca a été responsable de la création de l'IA.
 
 ## Disposition des fichiers
 
 ### UML/
 
-Contient les diagrammes UML
+Contient le diagramme UML de classes.
+
+_Suite à un problème concernant l'intégration de l'IA à l'interface graphique, nous n'avons malheureusement pas eu le temps de rajouter les classes de l'IA sur le diagramme de classes._
+
 
 ### src/
 

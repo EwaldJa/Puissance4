@@ -27,6 +27,6 @@ Contient les diagrammes UML
 
 Contient le code
 
-## lien GitHUB
+## Lien GitHub
 
 https://github.com/NathanARMANET/APO-Projet-Puissance4

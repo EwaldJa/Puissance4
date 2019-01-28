@@ -8,8 +8,8 @@ notre equipe est composée de :
 
 - ARMANET Nathan
 - JANIN Ewald
--
--
+- Joachim
+- Luca
 
 ### UML/
 

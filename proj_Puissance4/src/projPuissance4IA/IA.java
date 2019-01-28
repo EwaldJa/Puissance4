@@ -9,7 +9,7 @@ public class IA extends Joueur {
 		this.level = level;
 	}
 	public Grille jouer(Grille grille) throws HorsPlateauException, ColonnePleineException {
-		ArbreDeMonteCarlo a= new ArbreDeMonteCarlo(this.level,this,this.jSuivant);
+		ArbreDeMonteCarlo a= new ArbreDeMonteCarlo(this.level,this);
 		return a.FindNextMove(grille, this);
 		
 	}

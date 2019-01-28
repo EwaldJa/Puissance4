@@ -4,11 +4,11 @@ import java.util.ArrayList;
 public class ArbreDeMonteCarlo {
 	int niveauDiff;
 	Joueur joueur;
-	Joueur joueur2;
-	public ArbreDeMonteCarlo(int i,Joueur joueur,Joueur joueur2) {
+	IA ia;
+	public ArbreDeMonteCarlo(int i,IA joueur ) {
 		this.niveauDiff=i;
 		this.joueur=joueur;
-		this.joueur2=joueur2;
+		this.ia=joueur;
 		
 	}
 	
@@ -28,9 +28,19 @@ public class ArbreDeMonteCarlo {
 				}
 			}
 		}
+		  if(noeudRacine.getTabEnfant().size()==1) {
+			return noeudRacine.getTabEnfant().get(0).getEtat().getGrille();
+		  }
 		for(int i=0;i<nbBoucle;i++) {
 			  if(noeudRacine.getTabEnfant().size()==0) {
 				expand(noeudRacine);
+			  }
+			  
+			  for(int j=0;j<noeudRacine.getTabEnfant().size();j++) {
+				  Grille gMod=noeudRacine.getTabEnfant().get(j).getEtat().getGrille();
+				  if(gMod.verifGagne(ia)){
+					  return gMod;
+				  }
 			  }
 				Noeud meilleurEnfant= selectPromisingNode(noeudRacine);
 		           if (!meilleurEnfant.getEtat().getGrille().over()) {

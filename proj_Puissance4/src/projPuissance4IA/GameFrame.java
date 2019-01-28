@@ -5,6 +5,12 @@ import java.awt.Frame;
 import java.awt.*;
 
 public class GameFrame extends Frame {
+	
+	
+	public static void main(String[] args) {
+		new GameFrame();
+
+	}
 
 	private static final long serialVersionUID = 1L;
 	

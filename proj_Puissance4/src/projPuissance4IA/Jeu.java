@@ -99,9 +99,9 @@ public class Jeu {
 	}
 
 	/**
-	 * Méthode de jeu 
+	 * Méthode de jeu en cas de jeu console, Joueurs v Joueurs
 	 * 
-	 * @return
+	 * @return un booléen qui indique si la partie est terminée (true) ou non (false)
 	 */
 	public boolean update() {
 		int col = -1;
@@ -137,7 +137,14 @@ public class Jeu {
 		return false;
 	}
 	
-
+	/**
+	 * Méthode de jeu en cas de jeu graphique, Jouerus vs Joueurs
+	 * La colonne dans laquelle le joueur joue est passé en paramètre par le contrôleur
+	 * @param col
+	 * @return un booléen qui indique si la partie est terminée (true) ou non (false)
+	 * @see CanvasPuissance4KeyListener
+	 * @see CanvasPuissance4MouseListener
+	 */
 	public boolean updateGraphique(int col) {
 		try {
 			vue.afficher();			
@@ -155,13 +162,10 @@ public class Jeu {
 			
 		} catch(HorsPlateauException e) {
 			new FrameErreur(e.getMessage());
-			//System.out.println(e.getMessage());
 		} catch(ColonnePleineException e) {
 			new FrameErreur(e.getMessage());
-			//System.out.println(e.getMessage());
 		} catch(Exception e) {
 			new FrameErreur(e.toString());
-			//e.printStackTrace();
 		} 
 		return false;
 	}
@@ -212,13 +216,13 @@ public class Jeu {
 				}
 				else {
 					vue.afficher();
-					flag = 1;
-					this.SetGrille(ia.jouer(grille), 0);
+					this.SetGrille(ia.jouer(grille), 1);
 					vue.afficher();
 					if (grille.verifGagne()) {
 						vue.afficher();
 						return true;
 					}
+					flag = 0;
 				}
 			}
 			if(flag == tabjoueurs.length) {
@@ -228,13 +232,10 @@ public class Jeu {
 			
 		} catch(HorsPlateauException e) {
 			new FrameErreur(e.getMessage());
-			//System.out.println(e.getMessage());
 		} catch(ColonnePleineException e) {
 			new FrameErreur(e.getMessage());
-			//System.out.println(e.getMessage());
 		} catch(Exception e) {
 			new FrameErreur(e.toString());
-			//e.printStackTrace();
 		} 
 		return false;
 	}

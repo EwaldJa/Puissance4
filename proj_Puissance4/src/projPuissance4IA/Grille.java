@@ -86,15 +86,19 @@ public class Grille {
 		return (ligneGagnee(colonne, ligne, couleur) || colonneGagnee(colonne, ligne, couleur) || diagGagnee(colonne, ligne, couleur) || antiDiagGagnee(colonne, ligne, couleur));
 	}
 	
-	public boolean verifGagne() {
+	public boolean verifGagne(Joueur player) {
 		for(int i=0;i<nb_ligne;i++) {
 			for(int j=0;j<nb_colonne;j++) {
-				if (verifGagne(j, i, dernierJoueur.getCouleur())) {
+				if (verifGagne(j, i, player.getCouleur())) {
 					return true;
 				}
 			}
 		}
 		return false;
+	}
+	
+	public boolean verifGagne() {
+		return (verifGagne(dernierJoueur));
 	}
 	
 	public boolean ligneGagnee(int colonnejouee, int lignejouee, Color couleur) {

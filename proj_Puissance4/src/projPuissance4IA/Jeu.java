@@ -32,7 +32,7 @@ public class Jeu {
 	 * Notre vue, qui sera une instance soit graphique soit console
 	 * 
 	 * @see Vue
-	 * @see VueGrahphique
+	 * @see VueGraphique
 	 * @see VueConsole
 	 */
 	private Vue vue;
@@ -44,11 +44,12 @@ public class Jeu {
 	 */
 	private IA ia;
 	
+	
+	
 	/**
 	 * Constructeur qui demande aux joueurs les différents paramètres du jeu via la console
-	 * vueGraph est un booléen qui décide de la vue graphique (true) ou console (false)
 	 * 
-	 * @param vueGraph
+	 * @param vueGraph booléen qui décide de la vue graphique (true) ou console (false)
 	 */
 	public Jeu(boolean vueGraph) {
 		System.out.println("Veuillez choisir la hauteur de la grille :");
@@ -75,14 +76,18 @@ public class Jeu {
 		}
 	}
 	
+	
+	
 	/**
 	 * Constructeur dont tous les paramètres de jeu sont passés à l'appel, utile à la Vue Graphique
+	 * Appelé après un LaunchFrame
 	 * 
-	 * @param vueGraph
-	 * @param lignes
-	 * @param colonnes
-	 * @param align
-	 * @param tabj
+	 * @param vueGraph booléen qui décide de la vue graphique (true) ou console (false)
+	 * @param lignes nombre de lignes de la grille de jeu
+	 * @param colonnes nombre de colonnes de la grille de jeu
+	 * @param align nombre de pions à aligner pour gagner
+	 * @param tabj tableau des joueurs, saisi par l'utilisateur sur la fenêtre de lancement
+	 * @see LaunchFrame
 	 */
 	public Jeu(boolean vueGraph, int lignes, int colonnes, int align, Joueur[] tabj, boolean iaEnabled, IA ia) {
 		if(lignes < 4) {lignes = 4;}
@@ -98,6 +103,8 @@ public class Jeu {
 		this.ia = ia;
 	}
 
+	
+	
 	/**
 	 * Méthode de jeu en cas de jeu console, Joueurs v Joueurs
 	 * 
@@ -137,10 +144,12 @@ public class Jeu {
 		return false;
 	}
 	
+	
+	
 	/**
-	 * Méthode de jeu en cas de jeu graphique, Jouerus vs Joueurs
-	 * La colonne dans laquelle le joueur joue est passé en paramètre par le contrôleur
-	 * @param col
+	 * Méthode de jeu en cas de jeu graphique, Joueurs vs Joueurs
+	 * 
+	 * @param col colonne dans laquelle le joueur joue, passée en paramètre par le contrôleur
 	 * @return un booléen qui indique si la partie est terminée (true) ou non (false)
 	 * @see CanvasPuissance4KeyListener
 	 * @see CanvasPuissance4MouseListener
@@ -170,6 +179,13 @@ public class Jeu {
 		return false;
 	}
 	
+	
+	
+	/**
+	 * Méthode de jeu en cas d'affichage console, 1v1 joueur contre IA.
+	 * 
+	 * @return un booléen qui indique si la partie est terminée (true) ou non (false)
+	 */
 	public boolean updateIAConsole() {
 		int col = -1;
 		System.out.println(grille.toString());
@@ -206,6 +222,16 @@ public class Jeu {
 		
 	}
 	
+	
+	
+	/**
+	 * Méthode de jeu avec un affichage graphique, en mode 1v1 joueur contre IA
+	 * 
+	 * @param col colonne dans laquelle le joueur joue, passée en paramètre par le contrôleur
+	 * @return un booléen qui indique si la partie est terminée (true) ou non (false)
+	 * @see CanvasPuissance4KeyListener
+	 * @see CanvasPuissance4MouseListener
+	 */
 	public boolean updateIAGraphique(int col) {
 		try {
 			vue.afficher();			
@@ -240,49 +266,104 @@ public class Jeu {
 		return false;
 	}
 	
+	
+	
+	/**
+	 * Méthode qui écrit des retours à la ligne pour enlever les affichages précédents 
+	 * 
+	 * @param ps le PrintStream sur lequel seront écrits les retours à la ligne
+	 * @see PrintStream
+	 */
 	private void viderAffichage(PrintStream ps) {
 		for (int i = 0; i < 50; i++) {
 			ps.println();
 		}
 	}
+	
+	
+	
+	/**
+	 * Méthode faisant jouer jusqu'à la fin de la partie : c'est le contrôleur si la vue console a été séléctionnée.
+	 * 
+	 * @param iaEnabled boolean symbolisant si le mode de jeu est 1v1 Joueur vs IA, ou Joueurs versus Joueurs
+	 * @return un booléen représentant l'état terminé (true) ou  non (false) de la partie
+	 */
 	public boolean jouer(boolean iaEnabled) {
 		if (iaEnabled) {if (vue instanceof VueConsole) {while(!updateIAConsole()) {} return true;}return false;}
 		else {if (vue instanceof VueConsole) {while(!update()) {} return true;}return false;}
 	}
+	
+	
+	
+	/**
+	 * Méthode servant à terminer la vue, en cas de VueGraphique, pour éviter d'avoir des VM Java mal fermées
+	 * qui touneraient en arrière plan.
+	 * 
+	 * @see VueGraphique
+	 */
 	public void dispose() {
 		vue.dispose();
 	}
+	
+	
+
 	public Grille getGrille() {
 		return grille;
 	}
+	
+	
+	
 	public void SetGrille(Grille g, int f, Joueur[] tabj) {
 		grille= g;
 		flag=f;
 		tabjoueurs = tabj;
 	}
+	
+	
+	
 	public void SetGrille(Grille g, int f) {
 		grille= g;
 		flag=f;
 	}
+	
+	
+	
 	public int getFlag() {
 		return flag;
 	}
+	
+	
+	
 	public Joueur[] getTabJoueurs() {
 		return tabjoueurs;
 	}
+	
+	
+	
 	public int getLignes() {
 		return grille.getNbLigne();
 	}
+	
+	
+	
 	public int getColonnes() {
 		return grille.getNbColonne();
 	}
+	
+	
+	
 	public int getAlignement() {
 		return grille.getAlignement();
 	}
+	
+	
+	
 	public boolean getGraphismes() {
 		return (vue instanceof VueGraphique);
 	}
 
+	
+	
 	public IA getIA() {
 		return ia;
 	}

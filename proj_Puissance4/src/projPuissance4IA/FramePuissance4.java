@@ -2,19 +2,51 @@ package projPuissance4IA;
 
 import java.awt.*;
 
+/**
+ * Cette classe permet l'affichage de la grille via un CanvasPuissance4. C'est la fenêtre qui va contenir le canvas.
+ * 
+ * @author Ewald
+ * @see Frame
+ * @see CanvasPuissance4
+ */
 public class FramePuissance4 extends Frame {
 
-	// Attributs
 
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Constantes statiques déterminant les tailles de cases et autres détails
+	 */
 	public static final int COTE_CASE = 50, GAP_CASE = 10, LEGENDE = 150, MARGE = 5, TITRE = 30;
+	
+	/**
+	 * Dimensions de la FramePuissance4, accessibles en statique par commodité
+	 * @see FramePuissance4
+	 */
 	public static int HAUTEUR, LARGEUR;
+	
+	/**
+	 * Canvas servant à l'affichage de la grille
+	 * @see CanvasPuissance4
+	 */
 	private CanvasPuissance4 canvas;
+	
+	/**
+	 * Contrôleur de jeu actuel, pour obtenir les caractéristiques de la partie
+	 * @see Jeu
+	 */
 	private Jeu jeu;
 
-	// Methods
-
+	/**
+	 * Constructeur de la FramePuissance4
+	 * @param jeu contrôleur du jeu
+	 * @param iaEnabled booléen représentant le mode IA vs Humain
+	 * @see FramePuissance4#jeu
+	 * @see FrameListener
+	 * @see CanvasPuissance4
+	 * @see CanvasPuissance4KeyListener
+	 * @see CanvasPuissance4MouseListener
+	 */
 	public FramePuissance4(Jeu jeu, boolean iaEnabled) {
 		this.jeu = jeu;
 		canvas = new CanvasPuissance4(jeu, iaEnabled);
@@ -38,6 +70,10 @@ public class FramePuissance4 extends Frame {
 		canvas.requestFocus();
 	}
 	
+	/**
+	 * Méthode d'affichage, pour actualiser la grille affichée sur le canvas
+	 * @see CanvasPuissance4
+	 */
 	public void affichage() {
 		canvas.affichage(jeu);
 		canvas.requestFocus();

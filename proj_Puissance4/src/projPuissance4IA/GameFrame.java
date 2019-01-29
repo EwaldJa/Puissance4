@@ -4,6 +4,12 @@ import java.awt.Frame;
 
 import java.awt.*;
 
+/**
+ * Cette classe contient le main. Elle affiche une fenêtre qui permet, au lancement du jeu, de choisir entre un
+ * affichage console et un affichage graphique, et entre un mode joueur vs IA ou joueur versus joueur.
+ * 
+ * @author Ewald
+ */
 public class GameFrame extends Frame {
 	
 	
@@ -14,9 +20,17 @@ public class GameFrame extends Frame {
 
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Checkbox permettant de déterminer le type d'affichage du jeu : graphique (par défaut), ou console
+	 */
 	private Checkbox vue;
-	// Methods
 
+	/**
+	 * Constructeur de la frame du début de jeu
+	 * @see FrameListener
+	 * @see ConfigListener
+	 * @see LaunchFrame
+	 */
 	public GameFrame() {
 
 		this.setSize(500, 300);

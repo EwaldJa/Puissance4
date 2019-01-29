@@ -5,7 +5,7 @@ import java.io.PrintStream;
 /**
  * Cette classe fait partie du contrôleur du jeu.
  * 
- *
+ *@author Ewald
  */
 public class Jeu {
 
@@ -50,6 +50,7 @@ public class Jeu {
 	 * Constructeur qui demande aux joueurs les différents paramètres du jeu via la console
 	 * 
 	 * @param vueGraph booléen qui décide de la vue graphique (true) ou console (false)
+	 * @see Vue
 	 */
 	public Jeu(boolean vueGraph) {
 		System.out.println("Veuillez choisir la hauteur de la grille :");

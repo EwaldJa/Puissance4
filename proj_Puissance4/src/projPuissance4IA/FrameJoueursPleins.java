@@ -2,10 +2,23 @@ package projPuissance4IA;
 
 import java.awt.*;
 
+/**
+ * Frame notifiant au joueur que lle nombre maximal de joueurs sur la partie a déjà été atteint, et qu'il
+ * ne peut plus en rajouter.
+ * 
+ * @author Ewald
+ *
+ */
 public class FrameJoueursPleins extends Frame {
 	
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Contructeur d'une frame notifiant au joueur que le nombre max de joueurs (10) est atteint
+	 * 
+	 * @see FrameListener
+	 * @see Joueur
+	 */
 	public FrameJoueursPleins() {
 		this.setSize(500, 175);
 		this.setBackground(new Color(164, 168, 165));

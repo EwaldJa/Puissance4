@@ -3,21 +3,85 @@ package projPuissance4IA;
 import java.awt.*;
 import java.util.*;
 
+/**
+ * Cette Frame est la seconde affichée au lancement d'une partie après la GameFrame. Elle permet de choisir les caractéristiques de la partie
+ * de puissance 4 qui va être jouée.
+ * 
+ * @author Ewald
+ * @see GameFrame
+ */
 public class LaunchFrame extends Frame {
 
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * ArrayList de String représentant les couleurs possibles pour des joueurs
+	 * @see ArrayList
+	 * @see String
+	 * @see Color
+	 */
 	private ArrayList<String> tabcolor = new ArrayList<String>(Arrays.asList(new String[] {"Rouge", "Jaune", "Cyan", "Vert", "Orange", "Bleu", "Noir", "Magenta", "Rose", "Blanc"}));
+	
+	/**
+	 * ArrayList de String représentant les niveaux de difficulté possibles pour l'IA
+	 * @see IA#level
+	 * @see ArrayList
+	 * @see String
+	 */
 	private ArrayList<String> tabdifficulte = new ArrayList<String>(Arrays.asList(new String[] {"Facile", "Moyen", "Difficile", "Hardcore"}));
+	
+	/**
+	 * TextField permettant la saisie des caractéristiques de la partie
+	 * @see TextField
+	 */
 	private TextField newlignes,newcolonnes,newobjectif,newmotif;
+	
+	/**
+	 * Tableau représentant les joueurs qui joueront la partie
+	 */
 	private Joueur[] tabjoueurs = {null, null, null, null, null, null, null, null, null, null}; 
+	
+	/**
+	 * Liste déroulante, permettant de choisir soit la couleur d'un joueur à ajouter, soit 
+	 *le niveau de difficulté de l'IA.
+	 *
+	 *@see IA#Level
+	 *@see Joueur#pion#couleur
+	 */
 	private Choice choixCouleur = new Choice();
+	
+	/**
+	 * Matrice de Label, utile à l'affichage des caractéristiques des joueurs
+	 * @see Label
+	 */
 	private Label[][] liste= new Label[10][3];
+	
+	/**
+	 * Bouton permettant de lancer la partie
+	 */
 	private Button bLancer;
+	
+	/**
+	 * Compteur de joueurs ajoutés à la partie
+	 */
 	private int nbjoueurs = 0;
+	
+	/**
+	 * Entier représentant le niveau de l'IA
+	 * 
+	 * @see IA#level
+	 */
 	private int ia_difficulty;
-	// Methods
 
+	/**
+	 * Constructeur de la frame de paramétrage de la partie
+	 * 
+	 * @param graph représentant le type de vue choisi par le joueur : graphique (true) ou console (false)
+	 * @param iaEnabled représentant le mode 1v1 Joueur vs IA, si valeur à true
+	 * @see LancementListener
+	 * @see AjoutJoueurListener
+	 * @see FrameListener
+	 */
 	public LaunchFrame(boolean graph, boolean iaEnabled) {
 
 		this.setSize(600, 600);
@@ -82,9 +146,9 @@ public class LaunchFrame extends Frame {
 		welcomPanel.add(lbltxt1); welcomPanel.add(lbltxt2); welcomPanel.add(lbltxt3); welcomPanel.add(lbltxt4); welcomPanel.add(lbltxt5);
 		this.add(welcomPanel, BorderLayout.NORTH);
 		
-		Label lbllignes = new Label("Nb lignes : "); newlignes = new TextField("6",2);
-		Label lblcolonnes = new Label("Nb col : "); newcolonnes = new TextField("7",2);
-		Label lblobjectif = new Label("Objectif : "); newobjectif = new TextField("4",2);
+		Label lbllignes = new Label("Nb lignes : "); newlignes = new TextField(Integer.toString(Grille.DEFAULT_LIGNE),2);
+		Label lblcolonnes = new Label("Nb col : "); newcolonnes = new TextField(Integer.toString(Grille.DEFAULT_COLONNE),2);
+		Label lblobjectif = new Label("Objectif : "); newobjectif = new TextField(Integer.toString(Grille.DEFAULT_ALIGNEMENT),2);
 		optionPanel.add(lbllignes);optionPanel.add(newlignes);
 		optionPanel.add(lblcolonnes);optionPanel.add(newcolonnes);
 		optionPanel.add(lblobjectif);optionPanel.add(newobjectif);

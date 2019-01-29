@@ -1,5 +1,10 @@
 package projPuissance4IA;
 
+/**
+ * 
+ * 
+ * @author Luca
+ */
 public class Arbre {
 	public Noeud noeud;
 

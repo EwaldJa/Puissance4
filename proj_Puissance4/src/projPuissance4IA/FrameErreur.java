@@ -2,10 +2,23 @@ package projPuissance4IA;
 
 import java.awt.*;
 
+/**
+ * Frame permettant l'affichage de toute erreur qui surviendrai en cours de partie, très utilisée lors
+ * de la phase de codage du jeu, car les erreurs ne s'affichaient pas dans la console.
+ * 
+ * @author Ewald
+ *
+ */
 public class FrameErreur extends Frame {
 	
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Constructeur d'une FrameErreur, permet d'afficher le message de l'Exception qui a été levée.
+	 * 
+	 * @param message une String, message d'erreur à afficher
+	 * @see FrameListener
+	 */
 	public FrameErreur(String message) {
 		this.setSize(550, 400);
 		this.setBackground(new Color(164, 168, 165));

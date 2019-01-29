@@ -2,11 +2,32 @@ package projPuissance4IA;
 
 import java.awt.*;
 
+/**
+ * Cette frame est appelée à la fin d'une partie. Elle sert à afficher un message à l'utilisateur en cas de victoire
+ * d'un joueur (en mode IA ou Joueurs vs Joueurs), de défaite du joueur face à l'IA, ou alors d'un match nul.
+ * Elle permet également de rejouer en gardant la même configuration de partie, de recommencer une partie en 
+ * reconfigurant, ou de quitter le jeu.
+ * 
+ * @author Ewald
+ */
 public class FrameVictoire extends Frame {
 
 	private static final long serialVersionUID = 1L;
+	
+	private Frame myframe;
 
+	/**
+	 * Constructeur d'une FrameVictoire, appelé à la fin d'une partie
+	 * @param jeu contrôleeur de jeu actuel, pour récuperer les caractéristiques de la partie, pour pouvoir rejouer
+	 * @param iaEnabled booléen représentant l'activation ou non du mode IA
+	 * @param frame la FramePuissance4 affichant la grille, qui sera fermée à la fin, mais permet de garder la grille affichée en fin de partie
+	 * @see FrameListener
+	 * @see RejouerListener
+	 * @see QuitterListener
+	 * @see RecommencerListener
+	 */
 	public FrameVictoire(Jeu jeu, boolean iaEnabled, Frame frame) {
+		myframe = frame;
 		this.setSize(550, 200);
 		this.setBackground(new Color(164, 168, 165));
 		Label lbltxt1;
@@ -34,15 +55,24 @@ public class FrameVictoire extends Frame {
 		}
 		
 		Button bRejouer = new Button("Rejouer"); bRejouer.setBackground(new Color(242, 201, 157)); bRejouer.addActionListener(new RejouerListener(this, jeu, iaEnabled));
-		Button bQuitter = new Button("Quitter"); bQuitter.setBackground(new Color(242, 201, 157));; bQuitter.addActionListener(new QuitterListener(this));
-		Panel bPanel = new Panel(new GridLayout(1,2,10,10));
-		bPanel.add(bRejouer); bPanel.add(bQuitter);
+		Button bRecommencer = new Button("Reparamétrer"); bRecommencer.setBackground(new Color(242, 201, 157)); bRecommencer.addActionListener(new RecommencerListener(this));
+		Button bQuitter = new Button("Quitter"); bQuitter.setBackground(new Color(242, 201, 157)); bQuitter.addActionListener(new QuitterListener(this));
+		Panel bPanel = new Panel(new GridLayout(1,3,10,10));
+		bPanel.add(bRejouer); bPanel.add(bRecommencer); bPanel.add(bQuitter);
 		
 		this.setLayout(new GridLayout(4,1,10,10));
 		this.add(lbltxt1); this.add(lbltxt2); this.add(lbltxt3); this.add(bPanel);
-		this.addWindowListener(new FrameListener(this, frame));
+		this.addWindowListener(new FrameListener(this, myframe));
 		this.setVisible(true);
 		this.requestFocus();
+	}
+	
+	/**
+	 * Méthode permettant de quitter les deux frames
+	 */
+	public void quitter() {
+		myframe.dispose();
+		this.dispose();
 	}
 
 }

@@ -3,6 +3,11 @@ package projPuissance4IA;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * Permet de comparer des noeuds pour l'IA
+ * 
+ * @author Luca
+ */
 public class UCT {
 
 	public static double UCTvalue(int TotalVisite,double nbWin,int nbVisite) {

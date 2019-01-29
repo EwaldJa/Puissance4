@@ -6,10 +6,24 @@ import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Label;
 
+/**
+ * Frame notifiant au joueur que la couleur qu'il a choisie pour le joueur qu'il tente d'ajouter à la liste des
+ * participants à la partie est déjà prise. La couleur en question est précisée sur la FrameCouleurPrise
+ * 
+ * @author Ewald
+ *
+ */
 public class FrameCouleurPrise extends Frame {
 
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Contructeur d'une frame notifiant au joueur que la couleur qu'il a choisie est prise
+	 * 
+	 * @param couleur déjà sélectionnée sur un autre Joueur
+	 * @see FrameListener
+	 * @see Joueur
+	 */
 	public FrameCouleurPrise(String couleur) {
 		this.setSize(550, 175);
 		this.setBackground(new Color(164, 168, 165));

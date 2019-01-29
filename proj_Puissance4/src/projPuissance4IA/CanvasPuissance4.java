@@ -4,14 +4,39 @@ import java.awt.Canvas;
 
 import java.awt.*;
 
+/**
+ * Cette classe sert à afficher la grille de jeu
+ * 
+ * @author Ewald
+ * @see FramePuissance4
+ * @see Canvas
+ */
 public class CanvasPuissance4 extends Canvas {
 	
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Le modèle grille de jeu actuelle
+	 * @see Grille
+	 */
 	private Grille grille;
+	
+	/**
+	 * Le contrôleur Jeu actuel
+	 * @see Jeu
+	 */
 	private Jeu jeu;
+	
+	/**
+	 * Un booléen symbolisant si le mode 1v1 Joueur vs IA est activé
+	 */
 	boolean iaEnabled;
 	
+	/**
+	 * Constructeur de CanvasPuissance4
+	 * @param jeu le contrôleur, pour pouvoir récuperer les joueurs et les afficher par la suite
+	 * @param iaisEnabled un booléen symbolisant l'activation ou non de l'IA
+	 */
 	public CanvasPuissance4(Jeu jeu, boolean iaisEnabled) {
 		this.grille = jeu.getGrille();
 		this.jeu = jeu;
@@ -19,11 +44,20 @@ public class CanvasPuissance4 extends Canvas {
 		iaEnabled = iaisEnabled;
 	}
 	
+	/**
+	 * méthode de réaffichage de la grille de jeu
+	 * @param jeu le contrôleur du jeu, pour bien avoir des informations à jour (notamment la grille)
+	 */
 	public void affichage(Jeu jeu) {
 		this.grille = jeu.getGrille(); //Permet d'actualiser la grille
 		this.paint(getGraphics());
 	}
 	
+	/**
+	 * Cette méthode est celle appelée qui permet de dessiner la fenêtre de jeu, et les 
+	 * pions placés par les différents joueurs (humains ou machines).
+	 * Elle affiche également le joueur dont c'est le tour et rappelle les couleurs des joueurs
+	 */
 	public void paint(Graphics g) {
 		Pion monpion;
 		int coordX = FramePuissance4.GAP_CASE; //Initilisation de la coordonnee abscisse(colonne) de la case courante, angle gauche superieur

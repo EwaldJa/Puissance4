@@ -1,6 +1,11 @@
 package projPuissance4IA;
 import java.util.ArrayList;
 
+/**
+ * Sert à calculer vers quel enfant se diriger pour l'IA
+ * 
+ * @author Luca
+ */
 public class ArbreDeMonteCarlo {
 	int niveauDiff;
 	Joueur joueur;

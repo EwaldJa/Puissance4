@@ -3,6 +3,11 @@ package projPuissance4IA;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Permet de représenter un noeud possible pour l'IA
+ * 
+ * @author Luca
+ */
 public class Noeud {
 	private Etat etat;
 	private Noeud parent;

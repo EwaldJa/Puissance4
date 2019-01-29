@@ -23,8 +23,8 @@ public class CanvasPuissance4MouseListener extends MouseAdapter {
 				colonne++;
 				clicX -= (FramePuissance4.GAP_CASE + FramePuissance4.COTE_CASE);
 			}
-			if (iaEnabled) {if(jeu.updateIAGraphique(colonne)) {new FrameVictoire(jeu, iaEnabled); frame.dispose();}}
-			else {if(jeu.updateGraphique(colonne)) {new FrameVictoire(jeu, iaEnabled); frame.dispose();}}
+			if (iaEnabled) {if(jeu.updateIAGraphique(colonne)) {new FrameVictoire(jeu, iaEnabled, frame);}}
+			else {if(jeu.updateGraphique(colonne)) {new FrameVictoire(jeu, iaEnabled, frame);}}
 		}
 
 	}

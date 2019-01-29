@@ -47,8 +47,8 @@ public class CanvasPuissance4KeyListener extends KeyAdapter implements KeyListen
 			colonne = 9;
 			break;
 		}
-		if(iaEnabled) {if(jeu.updateIAGraphique(colonne)) {new FrameVictoire(jeu, iaEnabled); frame.dispose();}}
-		else {if(jeu.updateGraphique(colonne)) {new FrameVictoire(jeu, iaEnabled); frame.dispose();}}
+		if(iaEnabled) {if(jeu.updateIAGraphique(colonne)) {new FrameVictoire(jeu, iaEnabled, frame);}}
+		else {if(jeu.updateGraphique(colonne)) {new FrameVictoire(jeu, iaEnabled, frame);}}
 	}
 
 }

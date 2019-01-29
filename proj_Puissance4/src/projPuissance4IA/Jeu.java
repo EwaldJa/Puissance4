@@ -122,6 +122,11 @@ public class Jeu {
 				System.out.println("Félicitations, Joueur " + (flag+1) + ", vous venez de gagner la partie !");
 				return true;
 			}
+			else if (verifNul()) {
+				vue.afficher();
+				System.out.println("Et c'est un match nul !");
+				return true;
+			}
 			else {
 					flag++;
 			}
@@ -158,6 +163,10 @@ public class Jeu {
 		try {
 			vue.afficher();			
 			if( grille.AjouterPion(col-1, tabjoueurs[flag]) ) {
+				vue.afficher();
+				return true;
+			}
+			else if (verifNul()) {
 				vue.afficher();
 				return true;
 			}
@@ -198,6 +207,11 @@ public class Jeu {
 					System.out.println("Félicitations, Joueur " + (flag+1) + ", vous venez de gagner la partie !");
 					return true;
 				}
+				else if (verifNul()) {
+					vue.afficher();
+					System.out.println("Et c'est un match nul !");
+					return true;
+				}
 				else {
 					flag = 1;
 				}
@@ -207,6 +221,11 @@ public class Jeu {
 				if (grille.verifGagne()) {
 					vue.afficher();
 					System.out.println("Malheureusement, Joueur " + (flag+1) + ", vous venez de perdre la partie !");
+					return true;
+				}
+				else if (verifNul()) {
+					vue.afficher();
+					System.out.println("Et c'est un match nul !");
 					return true;
 				}
 			}
@@ -240,11 +259,19 @@ public class Jeu {
 					vue.afficher();
 					return true;
 				}
+				else if (verifNul()) {
+					vue.afficher();
+					return true;
+				}
 				else {
 					vue.afficher();
 					this.SetGrille(ia.jouer(grille), 1);
 					vue.afficher();
 					if (grille.verifGagne()) {
+						vue.afficher();
+						return true;
+					}
+					else if (verifNul()) {
 						vue.afficher();
 						return true;
 					}
@@ -366,5 +393,9 @@ public class Jeu {
 	
 	public IA getIA() {
 		return ia;
+	}
+	
+	public boolean verifNul() {
+		return grille.matchNul();
 	}
 }

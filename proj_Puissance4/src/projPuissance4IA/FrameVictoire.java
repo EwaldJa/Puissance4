@@ -6,22 +6,33 @@ public class FrameVictoire extends Frame {
 
 	private static final long serialVersionUID = 1L;
 
-	public FrameVictoire(Jeu jeu, boolean iaEnabled) {
+	public FrameVictoire(Jeu jeu, boolean iaEnabled, Frame frame) {
 		this.setSize(550, 200);
 		this.setBackground(new Color(164, 168, 165));
 		Label lbltxt1;
 		Label lbltxt2;
 		Label lbltxt3;
-		if (iaEnabled && jeu.getFlag()==1) {
-			lbltxt1 = new Label("Honte à vous, Joueur !"); lbltxt1.setFont(new Font("myfont", Font.PLAIN, 30));
-			lbltxt2 = new Label("Vous venez de perdre contre l'IA !"); lbltxt2.setFont(new Font("myfont", Font.PLAIN, 30));
-			lbltxt3 = new Label("Que souhaitez-vous faire à présent ?"); lbltxt3.setFont(new Font("myfont", Font.PLAIN, 30));
+		if (jeu.verifNul()) {
+			lbltxt1 = new Label("Vous venez de faire un match nul !"); lbltxt1.setFont(new Font("myfont", Font.PLAIN, 30));
+			lbltxt2 = new Label("Vous pouvez mesurer à nouveau votre"); lbltxt2.setFont(new Font("myfont", Font.PLAIN, 30));
+			lbltxt3 = new Label("talent, ou quitter la partie : "); lbltxt3.setFont(new Font("myfont", Font.PLAIN, 30));
+			this.setTitle("Hmm hmm...");
 		}
 		else {
-			lbltxt1 = new Label("Bravo, Joueur " + (jeu.getFlag() + 1) + " !!!!!!!!"); lbltxt1.setFont(new Font("myfont", Font.PLAIN, 30));
-			lbltxt2 = new Label("Vous venez de gagner cette partie !"); lbltxt2.setFont(new Font("myfont", Font.PLAIN, 30));
-			lbltxt3 = new Label("Que souhaitez-vous faire à présent ?"); lbltxt3.setFont(new Font("myfont", Font.PLAIN, 30));
+			if (iaEnabled && jeu.getFlag()==1) {
+				lbltxt1 = new Label("Honte à vous, Joueur !"); lbltxt1.setFont(new Font("myfont", Font.PLAIN, 30));
+				lbltxt2 = new Label("Vous venez de perdre contre l'IA !"); lbltxt2.setFont(new Font("myfont", Font.PLAIN, 30));
+				lbltxt3 = new Label("Que souhaitez-vous faire à présent ?"); lbltxt3.setFont(new Font("myfont", Font.PLAIN, 30));
+				this.setTitle("Bouuuuuh !!!");
+			}
+			else {
+				lbltxt1 = new Label("Bravo, Joueur " + (jeu.getFlag() + 1) + " !!!!!!!!"); lbltxt1.setFont(new Font("myfont", Font.PLAIN, 30));
+				lbltxt2 = new Label("Vous venez de gagner cette partie !"); lbltxt2.setFont(new Font("myfont", Font.PLAIN, 30));
+				lbltxt3 = new Label("Que souhaitez-vous faire à présent ?"); lbltxt3.setFont(new Font("myfont", Font.PLAIN, 30));
+				this.setTitle("Victoire !!!");
+			}
 		}
+		
 		Button bRejouer = new Button("Rejouer"); bRejouer.setBackground(new Color(242, 201, 157)); bRejouer.addActionListener(new RejouerListener(this, jeu, iaEnabled));
 		Button bQuitter = new Button("Quitter"); bQuitter.setBackground(new Color(242, 201, 157));; bQuitter.addActionListener(new QuitterListener(this));
 		Panel bPanel = new Panel(new GridLayout(1,2,10,10));
@@ -29,8 +40,7 @@ public class FrameVictoire extends Frame {
 		
 		this.setLayout(new GridLayout(4,1,10,10));
 		this.add(lbltxt1); this.add(lbltxt2); this.add(lbltxt3); this.add(bPanel);
-		this.setTitle("Victoire !!!");
-		this.addWindowListener(new FrameListener(this));
+		this.addWindowListener(new FrameListener(this, frame));
 		this.setVisible(true);
 		this.requestFocus();
 	}
